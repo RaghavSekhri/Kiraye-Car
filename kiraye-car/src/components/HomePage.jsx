@@ -8,7 +8,7 @@ export default class HomePage extends Component {
             <div>
                 <Navbar/>
                 <Button variant="contained" color="primary">
-                    Hello Folks!!
+                    Hello Folks!!!!!!
                 </Button>
             </div>
         )
