@@ -5,7 +5,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
-                Welcome to HomePage
+                Welcome here, where you can fulfill your dreams
             </div>
         )
     }
