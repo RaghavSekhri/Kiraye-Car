@@ -5,7 +5,6 @@ import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from '../src/components/Login'
 import SignUp from '../src/components/Signup'
 
 export default class App extends React.Component{
