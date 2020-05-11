@@ -4,9 +4,7 @@ import Navbar from './components/Navbar'
 import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from '../src/components/Login'
-import SignUp from '../src/components/Signup'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
 
 export default class App extends React.Component{
 
@@ -15,10 +13,14 @@ export default class App extends React.Component{
 
     let val=0
 
-    if(window.location.pathname==='/signup')
-    {
+    if(window.location.pathname==='/')
+      val = 0
+
+    if(window.location.pathname==='/login')
       val = 1
-    }
+
+    if(window.location.pathname==='/signup')
+      val = 2
 
     return (
       <div className="App">
