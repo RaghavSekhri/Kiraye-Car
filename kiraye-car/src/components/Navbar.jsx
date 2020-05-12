@@ -33,4 +33,3 @@ export default class SimpleTabs extends React.Component{
     );
   }
 }
-
