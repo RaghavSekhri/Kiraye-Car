@@ -1,3 +1,3 @@
 # Kiraye-Car
 
-## Website Link -> https://kiraye-car-g3rxgw50p.now.sh/
+## Website Link -> https://kiraye-car.now.sh/
