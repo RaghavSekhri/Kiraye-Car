@@ -37,7 +37,7 @@ class Login extends React.Component {
     
         //this.props.registerUser(newUser, this.props.history);
         axios
-          .post('http://127.0.0.1:5000/user/login', userData)
+          .post('/user/login', userData)
           .then(res => {
             if(res.data.Error)
             {
