@@ -45,7 +45,7 @@ class SignUp extends React.Component {
         //console.log(newUser)
 
         axios
-          .post('http://127.0.0.1:5000/user/signup', newUser)
+          .post('/user/signup', newUser)
           .then(res => {
               if(res.data.Error)
               {
