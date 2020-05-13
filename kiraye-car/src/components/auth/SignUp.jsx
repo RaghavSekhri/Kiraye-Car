@@ -45,7 +45,7 @@ class SignUp extends React.Component {
         //console.log(newUser)
 
         axios
-          .post('/user/signup', newUser)
+          .post('https://kiraye-car.herokuapp.com/user/signup', newUser)
           .then(res => {
               if(res.data.Error)
               {
