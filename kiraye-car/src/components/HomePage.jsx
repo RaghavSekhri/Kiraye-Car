@@ -14,7 +14,7 @@ export default class HomePage extends Component {
                 </div>
                 <div className="second-part">
                     <h2 style={{fontSize: '24px', marginTop: '0px', paddingTop: '40px', color: '#666', fontFamily: "Open Sans,-apple-", textTransform: 'uppercase'}}>The Kiraye-Car Advantage</h2>
-                    <p style={{color: '#666'}}>We simplified car rentals, so you can focus on what's important to you.</p>
+                    <p style={{color: '#666'}}>We simplified Car Rentals, so you can focus on what's important to you.</p>
                     <div className="services-images"></div>
                 </div>
                 <Footer />
