@@ -5,30 +5,28 @@ const jwt=require('jsonwebtoken');
 
 
 const userSchema=new mongoose.Schema({
- name:{
+ Fname:{
      type:String,
      required:true,
      trim:true
+ },
+ Lname:{
+    type:String,
+    required:true,
+    trim:true
  },
  email:{
      type:String,
      required:true,
      trim:true,
      unique:true,
-     lowercase:true,
-     validate(value){
-         if(!validator.isEmail(value))
-         {
-            throw new Error('Invalid Email');
-         }
-
-     }
+     lowercase:true
  },
  password:{
      type:String,
      required:true,
      trim:true,
-     minlength:7,
+     minlength:6,
      validate(value){
          let a=value.toLowerCase();
          if(a.includes('password'))
@@ -56,21 +54,26 @@ userSchema.methods.generateAuthToken=async function(){
     return token;
 }
 userSchema.statics.findByCredentials=async (email,password)=>{
-    if(email.length==0 || !validator.isEmail(email))
+    if(email.length===0 || !validator.isEmail(email))
     {
         
-        throw new Error('Invalid Email');
+        throw('Invalid Email');
     }
     
+    if(password.length===0)
+    {
+        throw('Password Field is empty.')
+    }
+
     const user= await User.findOne({ email });
     if(!user)
     {
-        throw new Error('Email Not Registered.');
+        throw('Email Not Registered.');
     }
     const match=await bcrypt.compare(password,user.password);
     if(!match)
     {
-        throw new Error('Incorrect Password.');
+        throw('Incorrect Password.');
     }
    return user;
 
