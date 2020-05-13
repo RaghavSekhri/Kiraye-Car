@@ -46,7 +46,7 @@ export default class Footer extends Component {
                         </div>
                     </div>
                     <div className="footer-copyright text-center py-3" style={{backgroundColor: '#212529'}}>© 2020 Copyright:
-                        <Link to='/' style={{color: 'white'}}> KirayeCar.com</Link>
+                        <Link to='/'  style={{color: 'white'}}> KirayeCar.com</Link>
                     </div>
                 </footer>
             </div>
