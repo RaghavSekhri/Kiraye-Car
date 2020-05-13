@@ -54,16 +54,12 @@ userSchema.methods.generateAuthToken=async function(){
     return token;
 }
 userSchema.statics.findByCredentials=async (email,password)=>{
-    if(email.length===0 || !validator.isEmail(email))
+    if(email.length===0 || !validator.isEmail(email) || password.length===0)
     {
         
-        throw('Invalid Email');
+        throw('Email or Password is Invalid');
     }
     
-    if(password.length===0)
-    {
-        throw('Password Field is empty.')
-    }
 
     const user= await User.findOne({ email });
     if(!user)

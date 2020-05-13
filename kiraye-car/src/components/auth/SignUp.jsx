@@ -12,13 +12,60 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 //import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import axios from 'axios'
 
 
 class SignUp extends React.Component {
+
+    state = {
+        Fname: '',
+        Lname: '',
+        email: '',
+        password: '',
+        password2: '',
+        errors: {}
+      };
+
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+    
+        const newUser = {
+          Fname: this.state.Fname,
+          Lname: this.state.Lname,
+          email: this.state.email,
+          password: this.state.password,
+          password2: this.state.password2
+        };
+    
+        //this.props.registerUser(newUser, this.props.history);
+        //console.log(newUser)
+
+        axios
+          .post('http://127.0.0.1:5000/user/signup', newUser)
+          .then(res => {
+              if(res.data.Error)
+              {
+                this.setState({errors:res.data.Error})
+              }
+              else
+              {
+                this.setState({errors:{}})
+              }
+          })
+          .catch(err=>{
+              console.log(err)
+          })
+    }
+
     render()
     {
         const theme = createMuiTheme();
-
+        //console.log(this.state)
+        const {errors} = this.state
         return (
             <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -29,33 +76,41 @@ class SignUp extends React.Component {
                 <Typography component="h1" variant="h5">
                 Sign up
                 </Typography>
-                <form style={{ width: '100%', marginTop: theme.spacing(3)}} noValidate>
+                <form style={{ width: '100%', marginTop: theme.spacing(3)}} noValidate onSubmit={this.onSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                     <TextField
+                        error={errors.Fname!==undefined}
+                        helperText={errors.Fname?errors.Fname:null}
                         autoComplete="fname"
-                        name="firstName"
+                        name="Fname"
                         variant="outlined"
                         required
                         fullWidth
                         id="firstName"
                         label="First Name"
                         autoFocus
+                        onChange={this.handleChange}
                     />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                     <TextField
+                        error={errors.Lname!==undefined}
+                        helperText={errors.Lname?errors.Lname:null}
                         variant="outlined"
                         required
                         fullWidth
                         id="lastName"
                         label="Last Name"
-                        name="lastName"
+                        name="Lname"
                         autoComplete="lname"
+                        onChange={this.handleChange}
                     />
                     </Grid>
                     <Grid item xs={12}>
                     <TextField
+                        error={errors.email!==undefined}
+                        helperText={errors.email?errors.email:null}
                         variant="outlined"
                         required
                         fullWidth
@@ -63,10 +118,13 @@ class SignUp extends React.Component {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        onChange={this.handleChange}
                     />
                     </Grid>
                     <Grid item xs={12}>
                     <TextField
+                        error={errors.password!==undefined}
+                        helperText={errors.password?errors.password:null}
                         variant="outlined"
                         required
                         fullWidth
@@ -75,6 +133,22 @@ class SignUp extends React.Component {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={this.handleChange}
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        error={errors.password2!==undefined}
+                        helperText={errors.password2?errors.password2:null}
+                        variant="outlined"
+                        required
+                        fullWidth
+                        name="password2"
+                        label="Confirm Password"
+                        type="password"
+                        id="password2"
+                        autoComplete="current-password"
+                        onChange={this.handleChange}
                     />
                     </Grid>
                     <Grid item xs={12}>
