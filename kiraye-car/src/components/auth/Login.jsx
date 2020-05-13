@@ -15,6 +15,28 @@ import Container from '@material-ui/core/Container';
 
 class Login extends React.Component {
 
+    state = {
+        email: '',
+        password: '',
+        errors: {}
+    }
+
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+    
+        const newUser = {
+          email: this.state.email,
+          password: this.state.password
+        };
+        console.log(newUser)
+    
+        //this.props.registerUser(newUser, this.props.history);
+    }
+
     render()
     {
         const theme = createMuiTheme();
@@ -29,7 +51,7 @@ class Login extends React.Component {
                 <Typography component="h1" variant="h5">
                 Sign in
                 </Typography>
-                <form style={{width: '100%', marginTop: theme.spacing(1)}} noValidate>
+                <form style={{width: '100%', marginTop: theme.spacing(1)}} noValidate onSubmit={this.onSubmit}>
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -40,6 +62,7 @@ class Login extends React.Component {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    onChange={this.handleChange}
                 />
                 <TextField
                     variant="outlined"
@@ -51,6 +74,7 @@ class Login extends React.Component {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={this.handleChange}
                 />
                 <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
