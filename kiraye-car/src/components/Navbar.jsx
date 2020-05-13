@@ -32,9 +32,9 @@ export default class SimpleTabs extends React.Component{
       <div>
         <AppBar position="static" style={{backgroundColor:theme.palette.primary.main}}>
           <Tabs value={val} onChange={this.handleChange} aria-label="simple tabs example">
-            <Tab icon={<HomeOutlined />} label="Home" component={Link} to="/" />  
-            <Tab icon={<AccountCircle/>} style={{marginLeft:"45%"}} label="Login" component={Link} to="/login"  />
-            <Tab icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />
+            <Tab icon={<HomeOutlined />} label="Home" component={Link} to="/" />
+            <Tab icon={<AccountCircle/>} style={{position: 'absolute', left: '82%'}} label="Login" component={Link} to="/login"  />
+            <Tab icon={<PersonAdd/>} style={{position: 'absolute', left: '89%'}} label="SignUp" component={Link} to={"/signup"} />
           </Tabs>
         </AppBar>
       </div>
