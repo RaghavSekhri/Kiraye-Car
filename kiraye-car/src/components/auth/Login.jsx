@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import axios from 'axios'
 
 
 class Login extends React.Component {
@@ -28,19 +29,35 @@ class Login extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
     
-        const newUser = {
+        const userData = {
           email: this.state.email,
           password: this.state.password
         };
-        console.log(newUser)
+        //console.log(newUser)
     
         //this.props.registerUser(newUser, this.props.history);
+        axios
+          .post('http://127.0.0.1:5000/user/login', userData)
+          .then(res => {
+            if(res.data.Error)
+            {
+              this.setState({errors:res.data})
+            }
+            else
+            {
+              this.setState({errors:{}})
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
     render()
     {
         const theme = createMuiTheme();
-
+        const {errors} = this.state
+        //console.log(this.state)
         return (
             <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -53,6 +70,7 @@ class Login extends React.Component {
                 </Typography>
                 <form style={{width: '100%', marginTop: theme.spacing(1)}} noValidate onSubmit={this.onSubmit}>
                 <TextField
+                    error={errors.Error!==undefined}
                     variant="outlined"
                     margin="normal"
                     required
@@ -65,6 +83,8 @@ class Login extends React.Component {
                     onChange={this.handleChange}
                 />
                 <TextField
+                    error={errors.Error!==undefined}
+                    helperText={errors.Error?errors.Error:null}
                     variant="outlined"
                     margin="normal"
                     required

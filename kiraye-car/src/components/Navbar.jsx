@@ -4,6 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Link} from 'react-router-dom'
 import {HomeOutlined, AccountCircle,PersonAdd} from '@material-ui/icons'
+import { createMuiTheme } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
 
 export default class SimpleTabs extends React.Component{
@@ -17,11 +18,19 @@ export default class SimpleTabs extends React.Component{
   };
   render()
   {
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#000'
+        }
+      },
+    });
+
     let val = this.state.value!==null?this.state.value:this.props.value
     
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="static" style={{backgroundColor:theme.palette.primary.main}}>
           <Tabs value={val} onChange={this.handleChange} aria-label="simple tabs example">
             <Tab icon={<HomeOutlined />} label="Home" component={Link} to="/" />  
             <Tab icon={<AccountCircle/>} style={{marginLeft:"45%"}} label="Login" component={Link} to="/login"  />

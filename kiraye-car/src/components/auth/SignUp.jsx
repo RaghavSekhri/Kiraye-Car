@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 //import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-//import axios from 'axios'
+import axios from 'axios'
 
 
 class SignUp extends React.Component {
@@ -42,13 +42,30 @@ class SignUp extends React.Component {
         };
     
         //this.props.registerUser(newUser, this.props.history);
-        console.log(newUser)
+        //console.log(newUser)
+
+        axios
+          .post('http://127.0.0.1:5000/user/signup', newUser)
+          .then(res => {
+              if(res.data.Error)
+              {
+                this.setState({errors:res.data.Error})
+              }
+              else
+              {
+                this.setState({errors:{}})
+              }
+          })
+          .catch(err=>{
+              console.log(err)
+          })
     }
 
     render()
     {
         const theme = createMuiTheme();
-
+        //console.log(this.state)
+        const {errors} = this.state
         return (
             <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -63,6 +80,8 @@ class SignUp extends React.Component {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                     <TextField
+                        error={errors.Fname!==undefined}
+                        helperText={errors.Fname?errors.Fname:null}
                         autoComplete="fname"
                         name="Fname"
                         variant="outlined"
@@ -76,6 +95,8 @@ class SignUp extends React.Component {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                     <TextField
+                        error={errors.Lname!==undefined}
+                        helperText={errors.Lname?errors.Lname:null}
                         variant="outlined"
                         required
                         fullWidth
@@ -88,6 +109,8 @@ class SignUp extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                     <TextField
+                        error={errors.email!==undefined}
+                        helperText={errors.email?errors.email:null}
                         variant="outlined"
                         required
                         fullWidth
@@ -100,6 +123,8 @@ class SignUp extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                     <TextField
+                        error={errors.password!==undefined}
+                        helperText={errors.password?errors.password:null}
                         variant="outlined"
                         required
                         fullWidth
@@ -113,6 +138,8 @@ class SignUp extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                     <TextField
+                        error={errors.password2!==undefined}
+                        helperText={errors.password2?errors.password2:null}
                         variant="outlined"
                         required
                         fullWidth

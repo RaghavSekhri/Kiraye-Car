@@ -8,12 +8,12 @@ const validate = require('../validation/validd');
 const router=new express.Router();
 
 router.post('/user/signup',async (req,res)=>{
-    console.log(req.body)
+    //console.log(req.body)
     const { errors, isValid } = validate(req.body);
 
     // Check Validation
     if (!isValid) {
-        return res.status(400).json(errors);
+        return res.status(201).json({"Error":errors});
     }
 
     User.findOne({ email: req.body.email }).then(async user => {
@@ -44,7 +44,7 @@ router.post('/user/login',async (req,res)=>{
     }
     catch(e){
         console.log(e)
-        return res.status(400).json({ Error: e });
+        return res.status(201).json({ Error: e });
     }
 })
 router.post('/user/logout',auth,async (req,res)=>{
