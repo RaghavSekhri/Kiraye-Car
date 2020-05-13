@@ -64,6 +64,8 @@ export default class HomePage extends Component {
                                     <p style={{textAlign: 'left', fontSize: '14px'}}>Get the car back to your preferred return location, and we will take it from there</p>
                             </div>
                         </div>    
+                    <p style={{color: '#666'}}>We simplified Car Rentals, so you can focus on what's important to you.</p>
+                    <div className="services-images"></div>
                 </div>
                 <Footer />
             </div>
