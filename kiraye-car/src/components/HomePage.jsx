@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
+import './styles/homepage.css'
+import Footer from './Footer'
 
 export default class HomePage extends Component {
     render() {
         return (
             <div>
-                Welcome to Homepage
+                <div id="front">
+                    <div>
+                        <p className="main-text">Dreaming of Buying a car, Just Rent it !!</p>
+                        <p className="second-text">And Let yourself Ride wherever you want to .&nbsp;.&nbsp;.</p>
+                    </div>
+                </div>
+                <div className="second-part">
+                    <h2 style={{fontSize: '24px', marginTop: '0px', paddingTop: '40px', color: '#666', fontFamily: "Open Sans,-apple-", textTransform: 'uppercase'}}>The Kiraye-Car Advantage</h2>
+                    <p style={{color: '#666'}}>We simplified car rentals, so you can focus on what's important to you.</p>
+                    <img src={require("../images/Screenshot from 2020-05-13 15-55-19.png")} alt="loading img" style={{paddingTop: '40px'}} />
+                </div>
+                <Footer />
             </div>
         )
     }

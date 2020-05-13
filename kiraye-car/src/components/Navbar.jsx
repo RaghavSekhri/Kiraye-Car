@@ -28,7 +28,6 @@ export default class SimpleTabs extends React.Component{
             <Tab icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />
           </Tabs>
         </AppBar>
-        
       </div>
     );
   }
