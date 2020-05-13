@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 //import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { Snackbar } from '@material-ui/core'
+import Alert from '@material-ui/lab/Alert';
 import axios from 'axios'
 
 
@@ -23,8 +25,17 @@ class SignUp extends React.Component {
         email: '',
         password: '',
         password2: '',
+        open: false,
         errors: {}
       };
+
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({open:false})
+    };
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -53,7 +64,8 @@ class SignUp extends React.Component {
               }
               else
               {
-                this.setState({errors:{}})
+                console.log(res)
+                this.setState({errors:{},open:true})
               }
           })
           .catch(err=>{
@@ -175,6 +187,11 @@ class SignUp extends React.Component {
                     </Grid>
                 </Grid>
                 </form>
+                <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
+                    <Alert elevation={6} variant="filled" onClose={this.handleClose} severity="success">
+                        Successfully Registered
+                    </Alert>
+                </Snackbar>
             </div>
             </Container>
         );
