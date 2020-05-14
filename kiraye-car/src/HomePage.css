@@ -5,6 +5,19 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    box-sizing:border-box;
+}
+
+.container-fluid{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#howItWorksRental{
+    padding-top:285px;
 }
 
 .htwDashedLine {
@@ -13,6 +26,12 @@
     color: #000;
     margin: 61px 80px 0 100px;
     width: 75%;
+}
+
+.col-sm-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 .col-md-3 {
@@ -37,18 +56,35 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 45px, rgba(0, 0, 0, 0.22) 0px 10px 18px; 
     border-radius: 50%;
     border: 8px solid #ddd;
-    content: "\F09D";
+    /* content: "\F09D"; */
     height: 120px;
     width: 120px;
     margin: 0;
     display: block;
 }
 
+#driver:hover {
+    background-image: url('https://www.revv.co.in/imgs/icons/wheel.png');
+    animation: mask 1.5s 1 alternate;
+}
+@keyframes mask{
+100% {
+     transform: rotate(1turn);
+}}
+
 #driver, #driver:hover {
     background-size: 50% 50%;
     background-repeat: no-repeat;
     background-position: 50%;
+}
+
+#driver {
     background-image: url('https://www.revv.co.in/imgs/icons/wheel.png');
+}
+
+#return:hover {
+    background-image: url('https://www.revv.co.in/imgs/icons/rotate-img.png');
+    animation: mask 1.5s 1 alternate;
 }
 
 #return, #return:hover {
@@ -83,16 +119,36 @@
     font-family: FontAwesome;
 }
 
+.hvr-icon-drop:active:before, .hvr-icon-drop:focus:before, .hvr-icon-drop:hover:before {
+    opacity: 0;
+    transition-duration: .3s;
+    animation-name: hvr-icon-drop;
+    animation-duration: .5s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: cubic-bezier(.52,1.64,.37,.66);
+    content: url('https://www.revv.co.in/imgs/icons/car-icons.png');
+}
+
 .hvr-icon-wobble-horizontal:before {
-    content: "\F09D";
+    content: url(C:/Users/hp/Desktop/kirayecar/Kiraye-Car/kiraye-car/src/icons8-mastercard-credit-card-80.png);
+    font-size:43px;
     position: absolute;
-    right: .6em;
-    padding: 20px 0;
+    right: .10em;
+    padding: 3px 4px;
     font-family: FontAwesome;
-    /* -webkit-transform: translateZ(0); */
+    -webkit-transform: translateZ(0);
     transform: translateZ(0);
     color: #000!important;
    
+}
+
+.hvr-icon-wobble-horizontal:active:before, .hvr-icon-wobble-horizontal:focus:before, .hvr-icon-wobble-horizontal:hover:before {
+    animation-name: hvr-icon-wobble-horizontal;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
 }
 
 .hvr-icon-wobble-horizontal {
@@ -103,7 +159,6 @@
     box-shadow: 0 0 1px transparent;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
     position: relative;
     padding-right: 2.2em;
     -webkit-transition-duration: .3s;
