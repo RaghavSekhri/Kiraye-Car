@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import './HomePage.css';
 import Navbar from './components/Navbar'
 import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
