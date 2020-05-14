@@ -3,9 +3,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Link} from 'react-router-dom'
-import {HomeOutlined, AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
+import { AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
+import Logo from '../images/logo3.png'
 
 class SimpleTabs extends React.Component{
 
@@ -19,8 +20,6 @@ class SimpleTabs extends React.Component{
   };
   render()
   {
-    const {classes} = this.props
-    console.log(classes)
     let val = this.state.value!==null?this.state.value:this.props.value
 
     const theme = createMuiTheme({
@@ -61,8 +60,8 @@ class SimpleTabs extends React.Component{
         <ThemeProvider theme={theme}>
           <AppBar position="static" >
             <Tabs value={val} onChange={this.handleChange} aria-label="simple tabs example">
-              <Tab wrapped icon={<HomeOutlined />} label="Home" component={Link} to="/" />
-              {!this.state.auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"78%"}} label="Login" component={Link} to="/login"  />}
+              <Tab wrapped icon={<img src={Logo} alt="" style={{width:"200px",height:"50px"}}></img>} component={Link} to="/" />
+              {!this.state.auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
               {!this.state.auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
               {this.state.auth && <Tab wrapped icon={<ExitToApp/>} style={{marginLeft:"85%"}} label="LogOut" component={Link} to={"/logout"} />}
             </Tabs>
