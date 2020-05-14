@@ -17,7 +17,7 @@ export default class HomePage extends Component {
                     <p style={{color: '#666'}}>We simplified car rentals, so you can focus on what's important to you.</p>
                     <img src={require("../images/Screenshot from 2020-05-13 15-55-19.png")} alt="loading img" style={{paddingTop: '40px'}}/>
                 </div> */}
-              <div className="row container-fluid howItWorks" id="howItWorksRental" style={{margin:'0px',fontFamily:'Open Sans,-apple-',scrollBehaviour:'smooth'}}>
+              <div className="row container-fluid howItWorks" style={{margin:'0px',fontFamily:'Open Sans,-apple-',scrollBehaviour:'smooth'}}>
                 <div className="col-sm-12 col-md-12" style={{textAlign: 'center', maxWidth: '1170px', margin: '0px auto'}}>
                     <h4 id="howItWorksRentalHeading" style={{fontFamily: 'Open Sans,-apple-', fontSize: '28px', color:'blue', fontWeight: 'bold', textAlign: 'left'}}>How it Works</h4>
                     <br />
