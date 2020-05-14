@@ -4,7 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Link} from 'react-router-dom'
 import {HomeOutlined, AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
-import { createMuiTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
 
 class SimpleTabs extends React.Component{
@@ -42,6 +42,9 @@ class SimpleTabs extends React.Component{
             },
             '&$selected': {
               color: 'yellow',
+            },
+            '@media (min-width: 0px)': {
+              minWidth: 72
             }
           },
         },
@@ -58,10 +61,10 @@ class SimpleTabs extends React.Component{
         <ThemeProvider theme={theme}>
           <AppBar position="static" >
             <Tabs value={val} onChange={this.handleChange} aria-label="simple tabs example">
-              <Tab classes={{ root: classes.tab }} wrapped icon={<HomeOutlined />} label="Home" component={Link} to="/" />
-              {!this.state.auth && <Tab classes={{ root: classes.tab }} wrapped icon={<AccountCircle/>} style={{marginLeft:"78%"}} label="Login" component={Link} to="/login"  />}
-              {!this.state.auth && <Tab classes={{ root: classes.tab }} wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
-              {this.state.auth && <Tab classes={{ root: classes.tab }} wrapped icon={<ExitToApp/>} style={{marginLeft:"85%"}} label="LogOut" component={Link} to={"/logout"} />}
+              <Tab wrapped icon={<HomeOutlined />} label="Home" component={Link} to="/" />
+              {!this.state.auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"78%"}} label="Login" component={Link} to="/login"  />}
+              {!this.state.auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
+              {this.state.auth && <Tab wrapped icon={<ExitToApp/>} style={{marginLeft:"85%"}} label="LogOut" component={Link} to={"/logout"} />}
             </Tabs>
           </AppBar>
         </ThemeProvider>
@@ -70,9 +73,5 @@ class SimpleTabs extends React.Component{
   }
 }
 
-const styles = {
-  tab: {
-      minWidth: 90
-  }
-};
-export default withStyles(styles)(SimpleTabs);
+
+export default SimpleTabs
