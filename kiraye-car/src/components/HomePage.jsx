@@ -23,7 +23,7 @@ export default class HomePage extends Component {
                     <br />
                     <div className="row">
                         <hr className="d-none d-sm-block htwDashedLine " />
-                            <div className="col-md-3 col-sm-6 col-xs-12 ">
+                            <div className="col-md-3 col-xs-12 ">
                                 <div className="circlePaper">
                                     <div>
                                         <span className="hvr-icon-wobble-horizontal" style={{fontSize: '43px'}}></span>
@@ -34,7 +34,7 @@ export default class HomePage extends Component {
                                 <h4 style={{fontFamily: 'Open Sans,-apple-', textAlign: 'left'}}>Book</h4>
                                 <p style={{textAlign: 'left', fontSize: '14px'}}>Pick your favourite car, time and place</p>
                             </div>
-                            <div className="col-md-3 col-sm-6 col-xs-12 ">
+                            <div className="col-md-3 col-xs-12 ">
                                 <div className="circlePaper">
                                         <div className="hvr-icon-drop" style={{paddingLeft: '33px', paddingTop: '25px'}}>
                                         </div>
@@ -44,7 +44,7 @@ export default class HomePage extends Component {
                                 <h4 style={{textAlign: 'left', fontFamily: 'Open Sans,-apple-'}}>Receive  &amp; Pay</h4>
                                 <p style={{textAlign: 'left', fontSize: '14px'}}>We will deliver the car to your doorstep</p>
                             </div>
-                            <div className="col-md-3 col-sm-6 col-xs-12 ">
+                            <div className="col-md-3 col-xs-12 ">
                                 <div className="circlePaper">
                                     <div className="howItworks-icons" id="driver">
                                     </div>
@@ -54,7 +54,7 @@ export default class HomePage extends Component {
                                 <h4 style={{textAlign: 'left', fontFamily: 'Open Sans,-apple-'}}>Drive </h4>
                                 <p style={{textAlign: 'left', fontSize: '14px'}}>Enjoy your Revv self drive</p>
                             </div>
-                            <div className="col-md-3 col-sm-6 col-xs-12 ">
+                            <div className="col-md-3 col-xs-12 ">
                                     <div className="circlePaper">
                                         <div className="howItworks-icons" id="return">
                                         </div>
