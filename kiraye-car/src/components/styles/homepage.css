@@ -40,3 +40,171 @@
     background-repeat: no-repeat;
     background-size: 920px;
 }
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    box-sizing:border-box;
+}
+
+.container-fluid{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.htwDashedLine {
+    position: absolute;
+    border-top: 2px dotted;
+    color: #000;
+    margin: 61px 80px 0 100px;
+    width: 75%;
+}
+
+.col-sm-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.circlePaper{
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgb(255, 255, 255);
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; 
+    box-sizing: border-box; 
+    font-family: Roboto, sans-serif; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 45px, rgba(0, 0, 0, 0.22) 0px 10px 18px; 
+    border-radius: 50%;
+    border: 8px solid #ddd;
+    height: 120px;
+    width: 120px;
+    margin: 0;
+    display: block;
+}
+
+#driver:hover {
+    background-image: url('https://www.revv.co.in/imgs/icons/wheel.png');
+    animation: mask 1.5s 1 alternate;
+}
+@keyframes mask{
+100% {
+     transform: rotate(1turn);
+}}
+
+#driver, #driver:hover {
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#driver {
+    background-image: url('https://www.revv.co.in/imgs/icons/wheel.png');
+}
+
+#return:hover {
+    background-image: url('https://www.revv.co.in/imgs/icons/rotate-img.png');
+    animation: mask 1.5s 1 alternate;
+}
+
+#return, #return:hover {
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url('https://www.revv.co.in/imgs/icons/rotate-img.png');
+}
+
+.hvr-icon-drop, .hvr-icon-drop:before {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.hvr-icon-drop {
+        display: inline-block;
+        vertical-align: middle;
+        box-shadow: 0 0 1px transparent;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+        padding-right: 2.3em;
+}
+
+.hvr-icon-drop:before {
+    content: url('https://www.revv.co.in/imgs/icons/car-icons.png');
+    position: absolute;
+    right: .5em;
+    opacity: 1;
+    padding: 8px 0;
+    font-family: FontAwesome;
+}
+
+.hvr-icon-drop:active:before, .hvr-icon-drop:focus:before, .hvr-icon-drop:hover:before {
+    opacity: 0;
+    transition-duration: .3s;
+    animation-name: hvr-icon-drop;
+    animation-duration: .5s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: cubic-bezier(.52,1.64,.37,.66);
+    content: url('https://www.revv.co.in/imgs/icons/car-icons.png');
+}
+
+.hvr-icon-wobble-horizontal:before {
+    content: url(../../images/icons8-mastercard-credit-card-80.png);
+    font-size:43px;
+    position: absolute;
+    right: .10em;
+    padding: 3px 4px;
+    font-family: FontAwesome;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    color: #000!important;
+   
+}
+
+.hvr-icon-wobble-horizontal:active:before, .hvr-icon-wobble-horizontal:focus:before, .hvr-icon-wobble-horizontal:hover:before {
+    animation-name: hvr-icon-wobble-horizontal;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+.hvr-icon-wobble-horizontal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: relative;
+    padding-right: 2.2em;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+
+.howItworks-icons {
+    padding: 53px;
+    margin-top: 0;
+    margin-left: 0;
+}
