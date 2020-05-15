@@ -168,7 +168,6 @@
     transition-duration: 1s;
     animation-name: hvr-icon-drop;
     animation-duration: 1s;
-    animation-delay: .3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     animation-timing-function: cubic-bezier(.52,1.64,.37,.66);
@@ -177,7 +176,7 @@
 
 @keyframes hvr-icon-drop {
     0% {transform: scale(2,2);}
-    50% {transform: scale(1,1);}
+    75% {transform: scale(1,1);}
 }
 
 .hvr-icon-wobble-horizontal:before {
