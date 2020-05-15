@@ -165,7 +165,6 @@
 }
 
 .hvr-icon-drop:active:before, .hvr-icon-drop:focus:before, .hvr-icon-drop:hover:before {
-    opacity: 0;
     transition-duration: 1s;
     animation-name: hvr-icon-drop;
     animation-duration: 1s;
