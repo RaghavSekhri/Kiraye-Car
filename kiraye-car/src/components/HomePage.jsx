@@ -52,7 +52,7 @@ export default class HomePage extends Component {
                                 <br />
                                 <br />
                                 <h4 style={{textAlign: 'left', fontFamily: 'Open Sans,-apple-'}}>Drive </h4>
-                                <p style={{textAlign: 'left', fontSize: '14px'}}>Enjoy your Revv self drive</p>
+                                <p style={{textAlign: 'left', fontSize: '14px'}}>Enjoy your Kiraye-Car self drive</p>
                             </div>
                             <div className="col-md-3 col-xs-12 ">
                                     <div className="circlePaper">
