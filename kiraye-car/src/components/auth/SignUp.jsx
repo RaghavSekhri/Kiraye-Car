@@ -64,7 +64,10 @@ class SignUp extends React.Component {
               else
               {
                 console.log(res)
+                localStorage.setItem('jwtToken',"Bearer "+res.data.token)
+                axios.defaults.headers.common['Authorization'] = res.data.token;
                 this.setState({errors:{},open:true})
+                window.location="/";
               }
           })
           .catch(err=>{
