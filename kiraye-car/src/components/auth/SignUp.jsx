@@ -12,8 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 //import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Snackbar } from '@material-ui/core'
-import Alert from '@material-ui/lab/Alert';
+import AuthFeedBack from '../AuthFeedBack'
 import axios from 'axios'
 
 
@@ -187,11 +186,13 @@ class SignUp extends React.Component {
                     </Grid>
                 </Grid>
                 </form>
-                <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
-                    <Alert elevation={6} variant="filled" onClose={this.handleClose} severity="success">
-                        Successfully Registered
-                    </Alert>
-                </Snackbar>
+                <AuthFeedBack 
+                    txt="Successfully Logged In"
+                    open={this.state.open} 
+                    autoHideDuration={6000}
+                    onClose={this.handleClose}
+                    severity="success" 
+                />
             </div>
             </Container>
         );
