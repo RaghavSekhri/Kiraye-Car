@@ -11,16 +11,12 @@ import Logo from '../images/logo3.png'
 class SimpleTabs extends React.Component{
 
   state={
-    value: null,
     auth: false
   }
 
-  handleChange = (event, newValue) => {
-    this.setState({value:newValue})
-  };
   render()
   {
-    let val = this.state.value!==null?this.state.value:this.props.value
+    let val = this.props.value
 
     const theme = createMuiTheme({
       palette: {
@@ -59,7 +55,7 @@ class SimpleTabs extends React.Component{
       <div>
         <ThemeProvider theme={theme}>
           <AppBar position="static" >
-            <Tabs value={val} onChange={this.handleChange} aria-label="simple tabs example">
+            <Tabs value={val} aria-label="simple tabs example">
               <Tab wrapped icon={<img src={Logo} alt="" style={{width:"200px",height:"50px"}}></img>} component={Link} to="/" />
               {!this.state.auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
               {!this.state.auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}

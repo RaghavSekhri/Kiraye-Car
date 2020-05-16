@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar'
 import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
@@ -10,7 +9,7 @@ export default class App extends React.Component{
 
   render()
   {
-
+    console.log("hello")
     var token = localStorage.getItem('jwtToken');
 
         if (token) {
@@ -20,21 +19,10 @@ export default class App extends React.Component{
             // Delete auth header
             delete axios.defaults.headers.common['Authorization'];
           }
-    let val=0
-
-    if(window.location.pathname==='/')
-      val = 0
-
-    if(window.location.pathname==='/login')
-      val = 1
-
-    if(window.location.pathname==='/signup')
-      val = 2
 
     return (
       <div className="App">
         <Router>
-        <Navbar value={val}/>
           <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={Login} />
