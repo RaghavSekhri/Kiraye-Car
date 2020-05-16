@@ -9,24 +9,32 @@ export default class App extends React.Component{
 
   render()
   {
-    console.log("hello")
-    var token = localStorage.getItem('jwtToken');
 
-        if (token) {
-            // Apply to every request
-            axios.defaults.headers.common['Authorization'] = token;
-          } else {
-            // Delete auth header
-            delete axios.defaults.headers.common['Authorization'];
-          }
+    var token = localStorage.getItem('jwtToken');
+    let auth;
+    if (token) {
+        // Apply to every request
+        axios.defaults.headers.common['Authorization'] = token;
+        auth=true;
+      } else {
+        // Delete auth header
+        auth=false;
+        delete axios.defaults.headers.common['Authorization'];
+      }
 
     return (
       <div className="App">
         <Router>
           <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/" render={({location})=>
+              <HomePage auth={location.auth?location.auth:auth} />
+            } />
+            <Route exact path="/login" render={()=>
+              <Login auth={auth} />
+            } />
+            <Route exact path="/signup" render={()=>
+              <SignUp auth={auth} />
+            } />
           </Switch>
         </Router>
       </div>

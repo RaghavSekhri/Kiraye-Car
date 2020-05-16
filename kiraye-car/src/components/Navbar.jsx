@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
@@ -11,13 +11,26 @@ import Logo from '../images/logo3.png'
 class SimpleTabs extends React.Component{
 
   state={
-    auth: false
+    redirect:false
+  }
+
+  handleLogout = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('jwtToken')
+    this.setState({redirect:true})
   }
 
   render()
   {
-    let val = this.props.value
+    if(this.state.redirect===true)
+    {
+      return(
+        <Redirect to={{pathname:"/login"}} />
+      )
+    }
 
+    const {value,auth} = this.props
+    //console.log(auth)
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -55,11 +68,11 @@ class SimpleTabs extends React.Component{
       <div>
         <ThemeProvider theme={theme}>
           <AppBar position="static" >
-            <Tabs value={val} aria-label="simple tabs example">
+            <Tabs value={value} aria-label="simple tabs example">
               <Tab wrapped icon={<img src={Logo} alt="" style={{width:"200px",height:"50px"}}></img>} component={Link} to="/" />
-              {!this.state.auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
-              {!this.state.auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
-              {this.state.auth && <Tab wrapped icon={<ExitToApp/>} style={{marginLeft:"85%"}} label="LogOut" component={Link} to={"/logout"} />}
+              {!auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
+              {!auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
+              {auth && <Tab wrapped icon={<ExitToApp/>} style={{marginLeft:"75%"}} label="LogOut" component={Link} onClick={this.handleLogout} to={"/"} />}
             </Tabs>
           </AppBar>
         </ThemeProvider>

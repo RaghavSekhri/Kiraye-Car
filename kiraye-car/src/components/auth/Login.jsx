@@ -6,22 +6,25 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { createMuiTheme } from '@material-ui/core/styles';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthFeedBack from '../AuthFeedBack'
 import Navbar from '../Navbar'
+import Loader from '../Loader'
 import axios from 'axios'
 
 
 class Login extends React.Component {
 
     state = {
+        auth:false,
         email: '',
         password: '',
         open: false,
+        load: false,
         errors: {}
     }
 
@@ -39,7 +42,9 @@ class Login extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-    
+        
+        this.setState({load:true})
+
         const userData = {
           email: this.state.email,
           password: this.state.password
@@ -52,16 +57,15 @@ class Login extends React.Component {
           .then(res => {
             if(res.data.Error)
             {
-              this.setState({errors:res.data})
+              console.log(res.data)
+              this.setState({errors:res.data,load:false})
             }
             else
             {
               console.log(res)
               localStorage.setItem('jwtToken',"Bearer "+res.data.token)
-
               axios.defaults.headers.common['Authorization'] = res.data.token;
-              this.setState({errors:{},open:true})
-              this.props.history.push("/")
+              this.setState({errors:{},open:true,load:false,auth:true})
             }
         })
         .catch(err=>{
@@ -71,12 +75,21 @@ class Login extends React.Component {
 
     render()
     {
+
+        let auth=this.state.auth||this.props.auth
+        //console.log(auth)
+        if(auth===true)
+        {
+            return (
+                <Redirect to={{pathname:"/", auth:true}} />
+            )
+        }
         const theme = createMuiTheme();
         const {errors} = this.state
         //console.log(this.state)
         return (
             <div>
-                <Navbar value={1}/>
+                <Navbar value={1} auth={this.props.auth}/>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <div style={{marginTop: theme.spacing(8),display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
@@ -147,6 +160,7 @@ class Login extends React.Component {
                             onClose={this.handleClose}
                             severity="success" 
                         />
+                        <Loader open={this.state.load} />
                         </div>
                 </Container>
             </div>
