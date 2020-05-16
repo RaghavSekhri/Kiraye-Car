@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { createMuiTheme } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -14,12 +14,15 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthFeedBack from '../AuthFeedBack'
 import Navbar from '../Navbar'
+import Loader from '../Loader'
 import axios from 'axios'
 
 
 class SignUp extends React.Component {
 
     state = {
+        auth:false,
+        load:false,
         Fname: '',
         Lname: '',
         email: '',
@@ -43,6 +46,7 @@ class SignUp extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        this.setState({load:true})
     
         const newUser = {
           Fname: this.state.Fname,
@@ -60,15 +64,15 @@ class SignUp extends React.Component {
           .then(res => {
               if(res.data.Error)
               {
-                this.setState({errors:res.data.Error})
+                console.log(res.data)
+                this.setState({errors:res.data.Error,load:false})
               }
               else
               {
                 console.log(res)
                 localStorage.setItem('jwtToken',"Bearer "+res.data.token)
                 axios.defaults.headers.common['Authorization'] = res.data.token;
-                this.setState({errors:{},open:true})
-                window.location="/";
+                this.setState({errors:{},open:true,load:false,auth:true})
               }
           })
           .catch(err=>{
@@ -78,12 +82,21 @@ class SignUp extends React.Component {
 
     render()
     {
+        let auth=this.state.auth||this.props.auth
+        
+        if(auth===true)
+        {
+            return (
+                <Redirect to={{pathname:"/", auth:true}} />
+            )
+        }
+
         const theme = createMuiTheme();
         //console.log(this.state)
         const {errors} = this.state
         return (
             <div>
-                <Navbar value={2}/>
+                <Navbar value={2} auth={this.props.auth} />
                 <Container component="main" maxWidth="xs">
                 <CssBaseline />
                     <div style={{marginTop: theme.spacing(8),display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
@@ -199,6 +212,7 @@ class SignUp extends React.Component {
                             onClose={this.handleClose}
                             severity="success" 
                         />
+                        <Loader open={this.state.load} />
                     </div>
                 </Container>
             </div>
