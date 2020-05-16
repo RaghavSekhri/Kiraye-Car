@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthFeedBack from '../AuthFeedBack'
 import axios from 'axios'
+import { DesktopWindows } from '@material-ui/icons';
 
 
 class Login extends React.Component {
@@ -56,7 +57,11 @@ class Login extends React.Component {
             else
             {
               console.log(res)
+              localStorage.setItem('jwtToken',"Bearer "+res.data.token)
+
+              axios.defaults.headers.common['Authorization'] = res.data.token;
               this.setState({errors:{},open:true})
+              window.location="/";
             }
         })
         .catch(err=>{
