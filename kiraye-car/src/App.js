@@ -4,6 +4,7 @@ import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
+import FAQ from './components/FAQ';
 import axios from 'axios';
 export default class App extends React.Component{
 
@@ -26,6 +27,10 @@ export default class App extends React.Component{
       <div className="App">
         <Router>
           <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/faq" component={FAQ}/>
             <Route exact path="/" render={({location})=>
               <HomePage auth={location.auth?location.auth:auth} />
             } />
