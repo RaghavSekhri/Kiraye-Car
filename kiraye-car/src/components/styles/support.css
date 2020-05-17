@@ -1,0 +1,81 @@
+.img{
+    background-image: url('../../images/tim-mossholder-bo3SHP58C3g-unsplash.jpg');
+    height: 50vh;
+    background-size: cover;
+    background-position-y: -150px;
+}
+
+.support-img{
+    background-image: url('../../images/kisspng-business-service-management-project-happy-employee-5b2bc803f39ef4.7731700415295959079979.png');
+    height: 30vh;
+    width: 22vw;
+    margin-top: 200px;
+    margin-left: 30px;
+    background-size: cover;
+}
+
+.the{
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+}
+
+.team{
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.profile-pic-1{
+    background-image: url(../../images//WhatsApp\ Image\ 2020-03-23\ at\ 1.13.10\ PM.jpeg);
+    /* height: 24vh; */
+    width: 50%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.profile-pic-2{
+    background-image: url('../../images/42461489.jpeg');
+    height: 24vh;
+    width: 50%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.profile-pic-3{
+    background-image: url('../../images/44224337.jpeg');
+    height: 24vh;
+    width: 50%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.profile-pic-4{
+    background-image: url('../../images/11007873_418214431687304_2109720545_n.jpg');
+    height: 24vh;
+    width: 50%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+#card-1{
+    transition: transform 1s;
+    border-radius: 5%;
+}
+
+#card-1:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.1); 
+}

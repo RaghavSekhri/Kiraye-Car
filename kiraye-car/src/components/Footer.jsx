@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default class Footer extends Component {
     render() {
         return (
-            <div style={{color: 'white', backgroundColor: '#1c2331'}}>         
+            <div style={{color: 'white', backgroundColor: '#1c2331', bottom: '0'}}>         
                 <footer className="page-footer font-small unique-color-dark" >
                     <div className="container text-center text-md-left">
                         <div className="row pt-5">
@@ -25,10 +25,10 @@ export default class Footer extends Component {
                                 <Link to="/signup"  style={{color: 'white'}}>Register Yourself</Link>
                             </p>
                             <p>
-                                <Link to="#!" style={{color: 'white'}}>Contact Us</Link>
+                                <Link to="/support" style={{color: 'white'}}>Support</Link>
                             </p>
                             <p>
-                                <Link to="#!" style={{color: 'white'}}>FAQ</Link>
+                                <Link to="/faq" style={{color: 'white'}}>FAQ</Link>
                             </p>
                         </div>
                         <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
