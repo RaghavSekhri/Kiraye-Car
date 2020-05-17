@@ -36,16 +36,17 @@ export default class App extends React.Component{
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/support" component={Support} />
             <Route exact path="/" render={()=>
               <HomePage auth={auth} changeAuth={this.handleAuthChange} />
-              <Route exact path="/faq" component={FAQ}/>
-              <Route exact path="/login" render={()=>
+              } />
+             <Route exact path="/login" render={()=>
               <Login auth={auth} changeAuth={this.handleAuthChange} />
               } />
-              <Route exact path="/signup" render={()=>
+             <Route exact path="/signup" render={()=>
               <SignUp auth={auth} changeAuth={this.handleAuthChange} />
             } />
+             <Route exact path="/support" component={Support} />
+             <Route exact path="/faq" component={FAQ}/>
           </Switch>
         </Router>
       </div>
