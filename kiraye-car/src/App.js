@@ -4,6 +4,7 @@ import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
+import FAQ from './components/FAQ';
 import axios from 'axios';
 export default class App extends React.Component{
 
@@ -35,11 +36,11 @@ export default class App extends React.Component{
           <Switch>
             <Route exact path="/" render={()=>
               <HomePage auth={auth} changeAuth={this.handleAuthChange} />
-            } />
-            <Route exact path="/login" render={()=>
+              <Route exact path="/faq" component={FAQ}/>
+              <Route exact path="/login" render={()=>
               <Login auth={auth} changeAuth={this.handleAuthChange} />
-            } />
-            <Route exact path="/signup" render={()=>
+              } />
+              <Route exact path="/signup" render={()=>
               <SignUp auth={auth} changeAuth={this.handleAuthChange} />
             } />
           </Switch>
