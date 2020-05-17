@@ -6,6 +6,8 @@ import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
 import FAQ from './components/FAQ';
 import axios from 'axios';
+import Support from './components/Support'
+
 export default class App extends React.Component{
 
   state={
@@ -34,6 +36,7 @@ export default class App extends React.Component{
       <div className="App">
         <Router>
           <Switch>
+            <Route exact path="/support" component={Support} />
             <Route exact path="/" render={()=>
               <HomePage auth={auth} changeAuth={this.handleAuthChange} />
               <Route exact path="/faq" component={FAQ}/>
