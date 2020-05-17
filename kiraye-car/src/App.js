@@ -5,6 +5,7 @@ import HomePage from '../src/components/HomePage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
+import FAQ from './components/FAQ';
 
 export default class App extends React.Component{
 
@@ -30,6 +31,7 @@ export default class App extends React.Component{
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/faq" component={FAQ}/>
           </Switch>
         </Router>
       </div>
