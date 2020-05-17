@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import './styles/homepage.css'
 import Footer from './Footer'
+import Navbar from './Navbar'
 
 export default class HomePage extends Component {
+    
     render() {
+        const {auth} = this.props
+        //console.log(auth)
         return (
             <div>
+                <Navbar value={0} auth={auth} />
                 <div id="front">
                     <div>
                         <p className="main-text">Dreaming of Buying a car, Just Rent it !!</p>
