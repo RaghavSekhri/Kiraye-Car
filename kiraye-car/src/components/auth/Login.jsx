@@ -64,8 +64,8 @@ class Login extends React.Component {
             {
               console.log(res)
               localStorage.setItem('jwtToken',"Bearer "+res.data.token)
-              axios.defaults.headers.common['Authorization'] = res.data.token;
               this.setState({errors:{},open:true,load:false,auth:true})
+              this.props.changeAuth(true)
             }
         })
         .catch(err=>{
@@ -81,7 +81,7 @@ class Login extends React.Component {
         if(auth===true)
         {
             return (
-                <Redirect to={{pathname:"/", auth:true}} />
+                <Redirect to="/" />
             )
         }
         const theme = createMuiTheme();

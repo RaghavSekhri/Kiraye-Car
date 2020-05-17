@@ -18,6 +18,7 @@ class SimpleTabs extends React.Component{
     e.preventDefault()
     localStorage.removeItem('jwtToken')
     this.setState({redirect:true})
+    this.props.changeAuth(false)
   }
 
   render()
@@ -25,7 +26,7 @@ class SimpleTabs extends React.Component{
     if(this.state.redirect===true)
     {
       return(
-        <Redirect to={{pathname:"/login"}} />
+        <Redirect to="/login" />
       )
     }
 
