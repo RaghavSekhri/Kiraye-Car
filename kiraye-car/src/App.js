@@ -7,33 +7,40 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 export default class App extends React.Component{
 
+  state={
+    auth:false
+  }
+
+  handleAuthChange = (newAuth) => {
+    this.setState({auth:newAuth})
+  }
+
   render()
   {
 
     var token = localStorage.getItem('jwtToken');
-    let auth;
+    let auth=this.state.auth;
     if (token) {
         // Apply to every request
         axios.defaults.headers.common['Authorization'] = token;
         auth=true;
       } else {
         // Delete auth header
-        auth=false;
         delete axios.defaults.headers.common['Authorization'];
       }
-
+      console.log("auth:"+auth)
     return (
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" render={({location})=>
-              <HomePage auth={location.auth?location.auth:auth} />
+            <Route exact path="/" render={()=>
+              <HomePage auth={auth} changeAuth={this.handleAuthChange} />
             } />
             <Route exact path="/login" render={()=>
-              <Login auth={auth} />
+              <Login auth={auth} changeAuth={this.handleAuthChange} />
             } />
             <Route exact path="/signup" render={()=>
-              <SignUp auth={auth} />
+              <SignUp auth={auth} changeAuth={this.handleAuthChange} />
             } />
           </Switch>
         </Router>
