@@ -29,6 +29,7 @@ class SignUp extends React.Component {
         password: '',
         password2: '',
         open: false,
+        open1: false,
         errors: {}
       };
 
@@ -38,6 +39,14 @@ class SignUp extends React.Component {
         }
 
         this.setState({open:false})
+    };
+
+    handleClose1 = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({open1:false})
     };
 
     handleChange = (e) => {
@@ -65,7 +74,7 @@ class SignUp extends React.Component {
               if(res.data.Error)
               {
                 console.log(res.data)
-                this.setState({errors:res.data.Error,load:false})
+                this.setState({errors:res.data.Error,load:false,open1:true})
               }
               else
               {
@@ -209,11 +218,11 @@ class SignUp extends React.Component {
                         </Grid>
                         </form>
                         <AuthFeedBack 
-                            txt="Successfully Logged In"
-                            open={this.state.open} 
-                            autoHideDuration={6000}
-                            onClose={this.handleClose}
-                            severity="success" 
+                            txt="Error Occurred"
+                            open={this.state.open1} 
+                            autoHideDuration={3000}
+                            onClose={this.handleClose1}
+                            severity="error" 
                         />
                         <Loader open={this.state.load} />
                     </div>
