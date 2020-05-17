@@ -71,8 +71,11 @@ class SignUp extends React.Component {
               {
                 console.log(res)
                 localStorage.setItem('jwtToken',"Bearer "+res.data.token)
-                this.setState({errors:{},open:true,load:false,auth:true})
-                this.props.changeAuth(true)
+                this.setState({errors:{},open:true,load:false})
+                setTimeout(()=>{
+                    this.setState({auth:true})
+                    this.props.changeAuth(true)
+                },500)
               }
           })
           .catch(err=>{
