@@ -9,7 +9,7 @@ import {Link,Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { createMuiTheme } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-//import LockOpenIcon from '@material-ui/icons/LockOpen';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthFeedBack from '../AuthFeedBack'
@@ -29,6 +29,7 @@ class SignUp extends React.Component {
         password: '',
         password2: '',
         open: false,
+        open1: false,
         errors: {}
       };
 
@@ -38,6 +39,14 @@ class SignUp extends React.Component {
         }
 
         this.setState({open:false})
+    };
+
+    handleClose1 = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({open1:false})
     };
 
     handleChange = (e) => {
@@ -65,14 +74,17 @@ class SignUp extends React.Component {
               if(res.data.Error)
               {
                 console.log(res.data)
-                this.setState({errors:res.data.Error,load:false})
+                this.setState({errors:res.data.Error,load:false,open1:true})
               }
               else
               {
                 console.log(res)
                 localStorage.setItem('jwtToken',"Bearer "+res.data.token)
-                axios.defaults.headers.common['Authorization'] = res.data.token;
-                this.setState({errors:{},open:true,load:false,auth:true})
+                this.setState({errors:{},open:true,load:false})
+                setTimeout(()=>{
+                    this.setState({auth:true})
+                    this.props.changeAuth(true)
+                },500)
               }
           })
           .catch(err=>{
@@ -87,7 +99,7 @@ class SignUp extends React.Component {
         if(auth===true)
         {
             return (
-                <Redirect to={{pathname:"/", auth:true}} />
+                <Redirect to="/" />
             )
         }
 
@@ -100,9 +112,14 @@ class SignUp extends React.Component {
                 <Container component="main" maxWidth="xs">
                 <CssBaseline />
                     <div style={{marginTop: theme.spacing(8),display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-                        <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.secondary.main}}>
-                        <LockOutlinedIcon />
-                        </Avatar>
+                        {!this.state.open? 
+                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.secondary.main}}>
+                                <LockOutlinedIcon />
+                            </Avatar>:
+                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.success.main}}>
+                                <LockOpenIcon />
+                            </Avatar>
+                        }
                         <Typography component="h1" variant="h5">
                         Sign up
                         </Typography>
@@ -206,11 +223,18 @@ class SignUp extends React.Component {
                         </Grid>
                         </form>
                         <AuthFeedBack 
-                            txt="Successfully Logged In"
+                            txt="Successfully Registered"
                             open={this.state.open} 
-                            autoHideDuration={6000}
+                            autoHideDuration={1000}
                             onClose={this.handleClose}
                             severity="success" 
+                        />
+                        <AuthFeedBack 
+                            txt="Error Occurred"
+                            open={this.state.open1} 
+                            autoHideDuration={3000}
+                            onClose={this.handleClose1}
+                            severity="error" 
                         />
                         <Loader open={this.state.load} />
                     </div>
