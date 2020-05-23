@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FAQ from './components/FAQ';
 import axios from 'axios';
 import Support from './components/Support'
+import Sample from './components/Sample'
+import CarType from './components/CarType'
+import ShowCar from './components/ShowCar'
 
 export default class App extends React.Component{
 
@@ -36,17 +39,20 @@ export default class App extends React.Component{
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" render={()=>
-              <HomePage auth={auth} changeAuth={this.handleAuthChange} />
+            <Route exact path = "/" render = { () =>
+              <HomePage auth = {auth} changeAuth = {this.handleAuthChange} />
               } />
-             <Route exact path="/login" render={()=>
-              <Login auth={auth} changeAuth={this.handleAuthChange} />
+             <Route exact path = "/login" render = { () =>
+              <Login auth = {auth} changeAuth = {this.handleAuthChange} />
               } />
-             <Route exact path="/signup" render={()=>
-              <SignUp auth={auth} changeAuth={this.handleAuthChange} />
+             <Route exact path = "/signup" render = { () =>
+              <SignUp auth = {auth} changeAuth = {this.handleAuthChange} />
             } />
-             <Route exact path="/support" component={Support} />
-             <Route exact path="/faq" component={FAQ}/>
+             <Route exact path = "/support" component = {Support} />
+             <Route exact path = "/faq" component = {FAQ}/>
+             <Route exact path = "/sample" component = {Sample} />
+             <Route exact path = "/cartype" component = {CarType} />
+             <Route exact path = "/showcar/" component = {ShowCar} />
           </Switch>
         </Router>
       </div>
