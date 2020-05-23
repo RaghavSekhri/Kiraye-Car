@@ -2,7 +2,7 @@ const express=require('express');
 const User=require('../models/user');
 const auth=require('../middleware/auth');
 const validator=require('validator')
-
+const { sendWelcomeEmail }=require('../emails/account.js')
 const validate = require('../validation/validd');
 
 const router=new express.Router();
@@ -25,6 +25,7 @@ router.post('/user/signup',async (req,res)=>{
         try{
             const user=new User(req.body);
             await user.save();
+            sendWelcomeEmail(user.email,user.name);
             const token= await user.generateAuthToken();
             res.status(201).send({name:user.name,token});
         }catch(e){
