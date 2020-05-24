@@ -7,6 +7,7 @@ import { AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
 import Logo from '../images/logo3.png'
+import Cookie from "js-cookie"
 
 class SimpleTabs extends React.Component{
 
@@ -16,7 +17,7 @@ class SimpleTabs extends React.Component{
 
   handleLogout = (e) => {
     e.preventDefault()
-    localStorage.removeItem('jwtToken')
+    Cookie.remove('jwtToken')
     this.setState({redirect:true})
     this.props.changeAuth(false)
   }

@@ -2,7 +2,7 @@ const express=require('express');
 const User=require('../models/user');
 const auth=require('../middleware/auth');
 const validator=require('validator')
-
+const { sendWelcomeEmail }=require('../emails/account.js')
 const validate = require('../validation/validd');
 
 const router=new express.Router();
@@ -25,8 +25,9 @@ router.post('/user/signup',async (req,res)=>{
         try{
             const user=new User(req.body);
             await user.save();
+            sendWelcomeEmail(user.email,user.Fname+" "+user.Lname);
             const token= await user.generateAuthToken();
-            res.status(201).send({name:user.name,token});
+            res.status(201).send({name:user.Fname+" "+user.Lname,token});
         }catch(e){
             return res.status(400).json({ Error : e.toString() });
         }
@@ -40,7 +41,7 @@ router.post('/user/login',async (req,res)=>{
         
         const user=await User.findByCredentials(req.body.email,req.body.password);
         const token=await user.generateAuthToken();
-        res.send({ name:user.Fname , token});
+        res.send({ name:user.Fname+" "+user.Lname , token});
     }
     catch(e){
         console.log(e)

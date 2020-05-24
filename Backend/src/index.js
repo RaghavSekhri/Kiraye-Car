@@ -2,6 +2,7 @@ const express=require('express');
 require('./db/database');
 const userRouter=require('./router/user');
 const carRouter=require('./router/cars');
+const supportRouter=require('./router/support');
 const cors=require('cors');
 
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(userRouter);
 app.use(carRouter);
+app.use(supportRouter);
 
 
 const port = process.env.PORT || 5000;

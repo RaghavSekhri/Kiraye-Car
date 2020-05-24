@@ -12,6 +12,7 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthFeedBack from '../AuthFeedBack'
+import Cookie from "js-cookie"
 import Navbar from '../Navbar'
 import Loader from '../Loader'
 import axios from 'axios'
@@ -72,7 +73,7 @@ class Login extends React.Component {
             else
             {
               console.log(res)
-              localStorage.setItem('jwtToken',"Bearer "+res.data.token)
+              Cookie.set('jwtToken',"Bearer "+res.data.token)
               this.setState({errors:{},open:true,load:false})
               setTimeout(()=>{
                 this.setState({auth:true})
