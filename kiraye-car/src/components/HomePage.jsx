@@ -19,7 +19,7 @@ class HomePage extends Component {
                         <p className="second-text">And Let yourself Ride wherever you want to .&nbsp;.&nbsp;.</p>
                         <Link to='/cartype'>
                             <Button id="main-btn" variant="contained">
-                                Book Your Car now
+                                Select Your Car now
                             </Button>
                         </Link>
                     </div>
