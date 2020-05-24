@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link,Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import { createMuiTheme } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Typography from '@material-ui/core/Typography';
@@ -103,7 +102,6 @@ class SignUp extends React.Component {
             )
         }
 
-        const theme = createMuiTheme();
         //console.log(this.state)
         const {errors} = this.state
         return (
@@ -111,19 +109,19 @@ class SignUp extends React.Component {
                 <Navbar value={2} auth={this.props.auth} />
                 <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                    <div style={{marginTop: theme.spacing(8),display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+                    <div style={{marginTop: "64px",display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
                         {!this.state.open? 
-                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.secondary.main}}>
+                            <Avatar style={{margin: "8px",backgroundColor: "#dc004e"}}>
                                 <LockOutlinedIcon />
                             </Avatar>:
-                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.success.main}}>
+                            <Avatar style={{margin: "8px",backgroundColor: "#4caf50"}}>
                                 <LockOpenIcon />
                             </Avatar>
                         }
                         <Typography component="h1" variant="h5">
                         Sign up
                         </Typography>
-                        <form style={{ width: '100%', marginTop: theme.spacing(3)}} noValidate onSubmit={this.onSubmit}>
+                        <form style={{ width: '100%', marginTop: "24px"}} noValidate onSubmit={this.onSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                             <TextField
@@ -210,7 +208,7 @@ class SignUp extends React.Component {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            style={{margin: theme.spacing(3, 0, 2)}}
+                            style={{marginTop:"24px",marginBottom:"16px"}}
                         >
                             Sign Up
                         </Button>
