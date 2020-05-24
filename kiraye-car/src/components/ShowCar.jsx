@@ -5,7 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Carousel from 'react-bootstrap/Carousel'
-let queryString = window.location.search;
+import queryString from 'query-string';
+import {Spinner} from 'react-bootstrap'
 
 
 export default class ShowCar extends Component {
@@ -13,15 +14,28 @@ export default class ShowCar extends Component {
         super(props)
     
         this.state = {
-             car:[]
+             car:[],
+             load:false
         }
     }
     componentDidMount(){
-        Axios.get(`https://kiraye-car.herokuapp.com/cartype/?type=${queryString}`)
+        let query;
+        let obj = queryString.parse(this.props.location.search)
+        if(obj.type)
+        {
+            query = obj.type
+        }
+        else
+        {
+            query = this.props.location.type;
+        }
+
+        Axios.get(`https://kiraye-car.herokuapp.com/cartype/?type=${query}`)
         .then(res=>{
         // console.log(res.data)
         this.setState({
-            car: res.data
+            car: res.data,
+            load:true
         })
         })
         .catch(err=>{
@@ -29,15 +43,19 @@ export default class ShowCar extends Component {
         })
     }
     render() {
-        if(window.location.search.type)
-        {
-            queryString = window.location.type;
-        }
-        else
-        {
-            queryString = this.props.location.type;
-        }
+
         console.log(this.state.car)
+
+        if(!this.state.load)
+        {
+            return (
+                <div style={{marginTop:"300px"}}>
+                    <Spinner animation="grow" />
+                    <h3>Loading...</h3>
+                </div>
+            )
+        }
+
         return (
             <div>
                 {this.state.car.map((cars,index)=>{

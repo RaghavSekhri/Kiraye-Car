@@ -17,7 +17,7 @@ export default class CarType extends Component {
         const {auth}=this.props
         return (
             <div>
-                <Navbar auth={auth} changeAuth={this.props.changeAuth}/>
+                <Navbar value={0} auth={auth} changeAuth={this.props.changeAuth}/>
                 <div className="def" style={{width:'100%',height:'130px',color:'white'}}>
                     <b><p style={{fontSize:'40px',fontFamily:'Anton'}}>LET'S GO PLACES</p></b>
                     <p style={{fontSize:'40px',fontFamily:'Dancing Script',fontStretch:'ultra-expanded'}}>Pick a suitable one!!!</p>
