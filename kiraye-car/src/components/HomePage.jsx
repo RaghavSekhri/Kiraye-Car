@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './styles/homepage.css'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 class HomePage extends Component {
     
@@ -15,6 +17,11 @@ class HomePage extends Component {
                     <div>
                         <p className="main-text">Dreaming of Buying a car, Just Rent it !!</p>
                         <p className="second-text">And Let yourself Ride wherever you want to .&nbsp;.&nbsp;.</p>
+                        <Link to='/cartype'>
+                            <Button id="main-btn" variant="contained">
+                                Book Your Car now
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 {/* <div className="second-part">

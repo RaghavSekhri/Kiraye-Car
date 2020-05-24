@@ -19,7 +19,7 @@ export default class Footer extends Component {
                             <h6 className="text-uppercase font-weight-bold" style={{color: '#aaa69d'}}>Jump to</h6>
                             <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{backgroundColor: 'tomato', width: '60px'}} />
                             <p>
-                                <Link to="#!" style={{color: 'white'}}>Book a Car</Link>
+                                <Link to="/cartype" style={{color: 'white'}}>Book a Car</Link>
                             </p>
                             <p>
                                 <Link to="/signup"  style={{color: 'white'}}>Register Yourself</Link>
@@ -35,13 +35,13 @@ export default class Footer extends Component {
                             <h6 className="text-uppercase font-weight-bold" style={{color: '#aaa69d'}}>Contact</h6>
                             <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{backgroundColor: 'tomato', width: '60px'}} />
                             <p>
-                                <i className="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                                <i className="fas fa-home mr-3"></i> 7th Floor, MarcoPolo Hostel, Chitkara University, Rajpura, Punjab, India</p>
                             <p>
-                                <i className="fas fa-envelope mr-3"></i> info@example.com</p>
+                                <i className="fas fa-envelope mr-3"></i> KirayeCarSupport@gmail.com</p>
                             <p>
-                                <i className="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                                <i className="fas fa-phone mr-3"></i> +91 97792-66855</p>
                             <p>
-                                <i className="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                                <i className="fas fa-print mr-3"></i> +91 73555-55479</p>
                         </div>
                         </div>
                     </div>
