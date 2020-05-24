@@ -5,7 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { createMuiTheme } from '@material-ui/core/styles';
 import {Link, Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -97,7 +96,6 @@ class Login extends React.Component {
                 <Redirect to="/" />
             )
         }
-        const theme = createMuiTheme();
         const {errors} = this.state
         //console.log(this.state)
         return (
@@ -105,19 +103,19 @@ class Login extends React.Component {
                 <Navbar value={1} auth={this.props.auth}/>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
-                    <div style={{marginTop: theme.spacing(8),display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+                    <div style={{marginTop: "64px",display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
                         {!this.state.open? 
-                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.secondary.main}}>
+                            <Avatar style={{margin: "8px",backgroundColor: "#dc004e"}}>
                                 <LockOutlinedIcon />
                             </Avatar>:
-                            <Avatar style={{margin: theme.spacing(1),backgroundColor: theme.palette.success.main}}>
+                            <Avatar style={{margin: "8px",backgroundColor: "#4caf50"}}>
                                 <LockOpenIcon />
                             </Avatar>
                         }
                         <Typography component="h1" variant="h5">
                         Sign in
                         </Typography>
-                        <form style={{width: '100%', marginTop: theme.spacing(1)}} noValidate onSubmit={this.onSubmit}>
+                        <form style={{width: '100%', marginTop: "8px"}} noValidate onSubmit={this.onSubmit}>
                         <TextField
                             error={errors.Error!==undefined}
                             variant="outlined"
@@ -154,7 +152,7 @@ class Login extends React.Component {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            style={{margin: theme.spacing(3, 0, 2)}}
+                            style={{marginTop:"24px",marginBottom:"16px"}}
                         >
                             Sign In
                         </Button>

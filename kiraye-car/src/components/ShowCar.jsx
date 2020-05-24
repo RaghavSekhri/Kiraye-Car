@@ -16,7 +16,7 @@ export default class ShowCar extends Component {
 
 
     componentDidMount(){
-        Axios.get(`http://kiraye-car.herokuapp.com/cartype/?type=${queryString}`)
+        Axios.get(`https://kiraye-car.herokuapp.com/cartype/?type=${queryString}`)
         .then(res=>{
         // console.log(res.data)
         this.setState({
