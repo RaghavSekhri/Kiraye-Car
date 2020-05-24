@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FAQ from './components/FAQ';
 import axios from 'axios';
 import Support from './components/Support'
-import Sample from './components/Sample'
 import CarType from './components/CarType'
 import ShowCar from './components/ShowCar'
 import Cookie from "js-cookie"
@@ -51,7 +50,6 @@ export default class App extends React.Component{
             } />
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
-             <Route exact path = "/sample" component = {Sample} />
              <Route exact path = "/cartype" component = {CarType} />
              <Route exact path = "/showcar/" component = {ShowCar} />
           </Switch>
