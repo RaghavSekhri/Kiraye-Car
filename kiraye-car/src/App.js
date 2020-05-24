@@ -48,9 +48,11 @@ export default class App extends React.Component{
              <Route exact path = "/signup" render = { () =>
               <SignUp auth = {auth} changeAuth = {this.handleAuthChange} />
             } />
+            <Route exact path = "/cartype" render = { () =>
+              <CarType auth = {auth} changeAuth = {this.handleAuthChange} />
+            } />
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
-             <Route exact path = "/cartype" component = {CarType} />
              <Route exact path = "/showcar/" component = {ShowCar} />
           </Switch>
         </Router>
