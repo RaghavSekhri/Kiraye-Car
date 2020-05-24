@@ -16,6 +16,20 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
+#main-btn{
+    position: absolute;
+    font-size: 25px;
+    top: 60%;
+    padding: 20px;
+    left: 42%;
+    color: #e17055;
+    border-radius: 5%;
+    outline: none;
+    font-family: 'Chelsea Market', cursive;
+    background-color: #30336b;
+    font-weight: bolder;
+}
+
 .second-text{
     color: #f5f6fa;
     font-size: 33px;
