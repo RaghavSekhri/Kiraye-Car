@@ -46,7 +46,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-            With reference to the km package which you select you are eligible to drive accordingly.For example, if you opt for 10 km/hr package then 5 hours reservation would come with 50 km in driving at no additional charge, while a 3 day reservation would come with 720 km in driving at no additional charges. There is a per-km charge for each km beyond that point. Please see Zoomcar tariffs for more details.
+            With reference to the km package which you select you are eligible to drive accordingly.For example, if you opt for 10 km/hr package then 5 hours reservation would come with 50 km in driving at no additional charge, while a 3 day reservation would come with 720 km in driving at no additional charges. There is a per-km charge for each km beyond that point. Please see Kiraye-Car tariffs for more details.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
       <ExpansionPanel>
@@ -58,7 +58,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your pick up checklist via the Zoomcar App. Just login to the App, select your live booking from the My bookings page and start. 1. Fill Exterior cleanliness and damage reporting with images. 2. Unlock the vehicle 3. Interior cleanliness, documents check and vehicle KM/Fuel readings with images. 4. Pick up the car keys from the dashboard. 5. Start your trip. It is advised to keep the images for your future reference and do ensure proper network coverage filling the checklist."
+          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your pick up checklist via the Kiraye-Car App. Just login to the App, select your live booking from the My bookings page and start. 1. Fill Exterior cleanliness and damage reporting with images. 2. Unlock the vehicle 3. Interior cleanliness, documents check and vehicle KM/Fuel readings with images. 4. Pick up the car keys from the dashboard. 5. Start your trip. It is advised to keep the images for your future reference and do ensure proper network coverage filling the checklist."
             Location with Fleet assistance: Collect the keys from the location executive.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
@@ -84,8 +84,8 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          We understand that driving can get tiring on a long drive and you want to share driving responsibilities with a friend. Simply add co-drivers through the Co-Drivers page in your account. This will ensure that in case of any damage while your friend is driving, liability is limited to the security deposit (under our usual conditions). If your friend is not a Zoomcar user already, we will ask them to upload their DL and then review it. If your friend is already a Zoomcar user then their DL has most likely already been approved. 
-          Please do remember, you are still responsible for the vehicle during your reservation. Additionally if a non-Zoomcar verified person drives the vehicle, Zoomcar's insurance coverage would be invalidated and you will face unlimited liability.
+          We understand that driving can get tiring on a long drive and you want to share driving responsibilities with a friend. Simply add co-drivers through the Co-Drivers page in your account. This will ensure that in case of any damage while your friend is driving, liability is limited to the security deposit (under our usual conditions). If your friend is not a Kiraye-Car user already, we will ask them to upload their DL and then review it. If your friend is already a Kiraye-Car user then their DL has most likely already been approved. 
+          Please do remember, you are still responsible for the vehicle during your reservation. Additionally if a non-KirayeCar verified person drives the vehicle, Kiraye-Car's insurance coverage would be invalidated and you will face unlimited liability.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
       <ExpansionPanel>
@@ -97,7 +97,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your End checklist via the Zoomcar app. Just log in to the App, select your live booking from the My bookings page and start. 1. Keep the keys inside the dashboard. 2. Edit your checklist details if there are any changes with Images. 3. Lock the vehicle. 4. End of your trip by uploading 4 side images of the vehicle. It is advised to keep the images for your future reference and need proper network coverage filling the checklist."
+          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your End checklist via the Kiraye-Car app. Just log in to the App, select your live booking from the My bookings page and start. 1. Keep the keys inside the dashboard. 2. Edit your checklist details if there are any changes with Images. 3. Lock the vehicle. 4. End of your trip by uploading 4 side images of the vehicle. It is advised to keep the images for your future reference and need proper network coverage filling the checklist."
             Please collect all your belonging before locking the vehicle.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
@@ -172,7 +172,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your pick up checklist via the Zoomcar app. Just log in to the App, select your live booking from the My bookings page and start. 1. Fill Exterior cleanliness and damage reporting with images. 2. Unlock the vehicle 3. Interior cleanliness, documents check and vehicle KM/Fuel readings with images. 4. Pick up the car keys from the dashboard. 5. Start your trip. It is advised to keep the images for your future reference and do ensure proper network coverage filling the checklist."
+          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your pick up checklist via the Kiraye-Car app. Just log in to the App, select your live booking from the My bookings page and start. 1. Fill Exterior cleanliness and damage reporting with images. 2. Unlock the vehicle 3. Interior cleanliness, documents check and vehicle KM/Fuel readings with images. 4. Pick up the car keys from the dashboard. 5. Start your trip. It is advised to keep the images for your future reference and do ensure proper network coverage filling the checklist."
             Location with Fleet assistance: Collect the keys from the location executive.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
@@ -185,7 +185,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your End checklist via the Zoomcar app. Just log in to the App, select your live booking from the My bookings page and start. 1. Keep the keys inside the dashboard. 2. Edit your checklist details if there are any changes with Images. 3. Lock the vehicle. 4. End of your trip by uploading 4 side images of the vehicle. It is advised to keep the images for your future reference and need proper network coverage filling the checklist."
+          "Location without fleet (KLE booking): Filling checklists is easy! Now you can fill your End checklist via the Kiraye-Car app. Just log in to the App, select your live booking from the My bookings page and start. 1. Keep the keys inside the dashboard. 2. Edit your checklist details if there are any changes with Images. 3. Lock the vehicle. 4. End of your trip by uploading 4 side images of the vehicle. It is advised to keep the images for your future reference and need proper network coverage filling the checklist."
             Please collect all your belonging before locking the vehicle.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
@@ -210,7 +210,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          "Extension is subject to vehicle availability and extension can be done before the booking end time. To extend the booking you have to 1. Login to Zoomcar application 2. Click on My trips from Menu option 3. Select the booking 4. Click on extend booking right below the Remaining time. 5. If yes, Key in your desired extension time. 6. Pay the amount immediately to confirm your extension. Failing to pay the extension amount immediately would reverse the extended time and you will have to drop back the vehicle within the originally reserved time. Any Late drop without extension would incur late fees and charges. https://www.zoomcar.com/policy#feePolicy."
+          "Extension is subject to vehicle availability and extension can be done before the booking end time. To extend the booking you have to 1. Login to Kiraye-Car application 2. Click on My trips from Menu option 3. Select the booking 4. Click on extend booking right below the Remaining time. 5. If yes, Key in your desired extension time. 6. Pay the amount immediately to confirm your extension. Failing to pay the extension amount immediately would reverse the extended time and you will have to drop back the vehicle within the originally reserved time. Any Late drop without extension would incur late fees and charges. https://www.Kiraye-Car.com/policy#feePolicy."
             Extend booking option will be available only if the vehicle is available for extension.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
@@ -273,7 +273,7 @@ export default class SimpleExpansionPanel extends Component {
         </ExpansionPanelSummary>
         <div style={{backgroundColor:'silver'}}><ExpansionPanelDetails>
           <Typography>
-          Once the booking gets completed, We will process the refund of your security deposit within 6-12 hours. The payment owed will be deducted from the security deposit in the event the customer is found to violate Zoomcar T&C.
+          Once the booking gets completed, We will process the refund of your security deposit within 6-12 hours. The payment owed will be deducted from the security deposit in the event the customer is found to violate Kiraye-Car T&C.
           </Typography>
         </ExpansionPanelDetails></div>     </ExpansionPanel>
       <ExpansionPanel>
