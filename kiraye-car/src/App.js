@@ -10,6 +10,7 @@ import Support from './components/Support'
 import Sample from './components/Sample'
 import CarType from './components/CarType'
 import ShowCar from './components/ShowCar'
+import Cookie from "js-cookie"
 
 export default class App extends React.Component{
 
@@ -24,7 +25,7 @@ export default class App extends React.Component{
   render()
   {
 
-    var token = localStorage.getItem('jwtToken');
+    var token = Cookie.get('jwtToken');
     let auth=this.state.auth;
     if (token) {
         // Apply to every request
