@@ -61,8 +61,8 @@ export default class ShowCar extends Component {
                 {this.state.car.map((cars,index)=>{
                             return(
                                 <div key= {index}>
-                                    <div style={{marginLeft: '550px'}}>
-                                        <Card style={{height: '70vh', width: '60%', marginTop: '50px', backgroundColor: '#ecf0f1'}}>
+                                    <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+                                        <Card style={{height: '700px', width: '35%', marginTop: '50px', backgroundColor: '#ecf0f1'}}>
                                             <div style={{height: '300px'}}>
                                                 <Carousel>
                                                     <Carousel.Item>
