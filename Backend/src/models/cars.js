@@ -26,6 +26,10 @@ const carSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    booked:{
+        type:Boolean,
+        default: false
+    },
     scraped_at:{
         type:Number,
         required:true,
