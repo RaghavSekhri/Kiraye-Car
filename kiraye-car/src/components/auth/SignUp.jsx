@@ -83,7 +83,7 @@ class SignUp extends React.Component {
                 this.setState({errors:{},open:true,load:false})
                 setTimeout(()=>{
                     this.setState({auth:true})
-                    this.props.changeAuth(true)
+                    this.props.changeAuth(true,res.data)
                 },500)
               }
           })
@@ -107,7 +107,7 @@ class SignUp extends React.Component {
         const {errors} = this.state
         return (
             <div>
-                <Navbar value={2} auth={this.props.auth} />
+                <Navbar value={2} auth={this.props.auth} user={this.props.user} />
                 <Container component="main" maxWidth="xs">
                 <CssBaseline />
                     <div style={{marginTop: "64px",display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
