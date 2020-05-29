@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Link, Redirect} from 'react-router-dom'
-import { AccountCircle,PersonAdd, ExitToApp} from '@material-ui/icons'
+import { AccountCircle,PersonAdd, ExitToApp } from '@material-ui/icons'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
 import Logo from '../images/logo3.png'
@@ -19,7 +19,7 @@ class SimpleTabs extends React.Component{
     e.preventDefault()
     Cookie.remove('jwtToken')
     this.setState({redirect:true})
-    this.props.changeAuth(false)
+    this.props.changeAuth(false,{})
   }
 
   render()
@@ -31,7 +31,7 @@ class SimpleTabs extends React.Component{
       )
     }
 
-    const {value,auth} = this.props
+    const {value,auth,user} = this.props
     //console.log(auth)
     const theme = createMuiTheme({
       palette: {
@@ -65,7 +65,7 @@ class SimpleTabs extends React.Component{
         }
       },
     });
-    
+    //console.log(user)
     return (
       <div>
         <ThemeProvider theme={theme}>
@@ -74,7 +74,8 @@ class SimpleTabs extends React.Component{
               <Tab wrapped icon={<img src={Logo} alt="" style={{width:"200px",height:"50px"}}></img>} component={Link} to="/" />
               {!auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
               {!auth && <Tab wrapped icon={<PersonAdd/>} label="SignUp" component={Link} to={"/signup"} />}
-              {auth && <Tab wrapped icon={<ExitToApp/>} style={{marginLeft:"75%"}} label="LogOut" component={Link} onClick={this.handleLogout} to={"/"} />}
+              {auth && <Tab wrapped icon={<AccountCircle/>} label={user.Fname+" "+user.Lname} style={{marginLeft:"70%"}} component={Link} to={"/dashboard"} />}
+              {auth && <Tab wrapped icon={<ExitToApp/>} label="LogOut" component={Link} onClick={this.handleLogout} to={"/"} />}
             </Tabs>
           </AppBar>
         </ThemeProvider>

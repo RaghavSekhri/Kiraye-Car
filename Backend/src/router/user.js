@@ -19,7 +19,7 @@ router.post('/user/signup',async (req,res)=>{
     User.findOne({ email: req.body.email }).then(async user => {
         if (user) {
           errors.email = 'Email already exists';
-          return res.status(400).json(errors);
+          return res.status(201).json({"Error":errors});
         }
 
         try{
@@ -27,7 +27,7 @@ router.post('/user/signup',async (req,res)=>{
             await user.save();
             sendWelcomeEmail(user.email,user.Fname+" "+user.Lname);
             const token= await user.generateAuthToken();
-            res.status(201).send({name:user.Fname+" "+user.Lname,token});
+            res.status(201).send({Fname:user.Fname,Lname:user.Lname,email:user.email,bookedCars:user.bookedCars,token});
         }catch(e){
             return res.status(400).json({ Error : e.toString() });
         }
@@ -41,7 +41,7 @@ router.post('/user/login',async (req,res)=>{
         
         const user=await User.findByCredentials(req.body.email,req.body.password);
         const token=await user.generateAuthToken();
-        res.send({ name:user.Fname+" "+user.Lname , token});
+        res.send({Fname:user.Fname,Lname:user.Lname,email:user.email,bookedCars:user.bookedCars,token});
     }
     catch(e){
         console.log(e)
@@ -63,8 +63,10 @@ router.post('/user/logout',auth,async (req,res)=>{
 })
 router.get('/user/me',auth,async (req,res)=>{
     res.send({ 
-        name:req.user.name,
-        email:req.user.email
+        Fname:req.user.Fname,
+        Lname:req.user.Lname,
+        email:req.user.email,
+        bookedCars:req.user.bookedCars
     });
 })
 router.patch('/user/update',auth,async(req,res)=>{

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Carousel from 'react-bootstrap/Carousel'
 import queryString from 'query-string';
-import {Spinner} from 'react-bootstrap'
+import Loader1 from './Loader1'
 
 
 export default class ShowCar extends Component {
@@ -47,14 +47,7 @@ export default class ShowCar extends Component {
         console.log(this.state.car)
 
         if(!this.state.load)
-        {
-            return (
-                <div style={{marginTop:"300px"}}>
-                    <Spinner animation="grow" />
-                    <h3>Loading...</h3>
-                </div>
-            )
-        }
+            return <Loader1 />
 
         return (
             <div>

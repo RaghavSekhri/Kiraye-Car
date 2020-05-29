@@ -22,6 +22,10 @@ const userSchema=new mongoose.Schema({
      unique:true,
      lowercase:true
  },
+ bookedCars:{
+    type: Array,
+    default: []
+ },
  password:{
      type:String,
      required:true,

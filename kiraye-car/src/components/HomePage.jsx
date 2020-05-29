@@ -12,7 +12,7 @@ class HomePage extends Component {
         //console.log(auth)
         return (
             <div>
-                <Navbar value={0} auth={auth} changeAuth={this.props.changeAuth}/>
+                <Navbar value={0} auth={auth} changeAuth={this.props.changeAuth} user={this.props.user} />
                 <div id="front">
                     <div>
                         <p className="main-text">Dreaming of Buying a car, Just Rent it !!</p>
