@@ -19,10 +19,17 @@ router.get('/cartype',(req,res)=>{
     let type = req.query.type
 
     Car.find({}).then(result=>{
-        var filteredCars = result.filter(car=>{
+        let filteredCars = result.filter(car=>{
             return car.build.body_type===type
         })
-        return res.status(201).json(filteredCars)
+        let activeCars = filteredCars.filter(car=>{
+            return car.booked===false
+        })
+        let bookedCars = filteredCars.filter(car=>{
+            return car.booked===true
+        })
+
+        return res.status(201).json({activeCars,bookedCars})
     }).catch(e=>{
         console.log(e)
     })
