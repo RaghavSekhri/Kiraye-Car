@@ -78,17 +78,11 @@ router.patch('/user/update',auth,async(req,res)=>{
        return res.status(400).send({error : 'Invalid Updates.'})
     }
 
-    req.body.password2=req.body.password
-    let { errors, isValid } = validate(req.body);
-
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
 
     try{
         updates.forEach((update)=> req.user[update]=req.body[update]);
         await req.user.save();
-        res.send();
+        res.send({Fname:req.user.Fname,Lname:req.user.Lname,email:req.user.email,bookedCars:req.user.bookedCars});
     }
     catch(e)
     {
