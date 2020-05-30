@@ -12,6 +12,7 @@ import ShowCar from './components/ShowCar'
 import Cookie from "js-cookie"
 import Loader1 from './components/Loader1'
 import DashBoard from './components/DashBoard'
+import ChangePassword from './components/ChangePassword'
 
 export default class App extends React.Component{
 
@@ -73,6 +74,7 @@ export default class App extends React.Component{
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
              <Route exact path = "/showcar/" component = {ShowCar} />
+             <Route exact path = "/changepassword/" component = {ChangePassword} />
           </Switch>
         </Router>
       </div>
