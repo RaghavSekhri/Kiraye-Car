@@ -6,6 +6,7 @@ import image from '../images/profile.png'
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom'
 import Loader from './Loader'
+import AuthFeedBack from './AuthFeedBack'
 import axios from 'axios'
 
 export default class DashBoard extends Component {
@@ -16,8 +17,18 @@ export default class DashBoard extends Component {
         email:"",
         edit:false,
         success:false,
-        load:false
+        load:false,
+        open:false,
+        submitData:{}
     }
+
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({open:false})
+    };
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -25,8 +36,15 @@ export default class DashBoard extends Component {
     handleEdit= (e) => {
         if(!this.state.edit)
         {
-            let {Fname,Lname,email} = this.props.user
-            this.setState({Fname,Lname,email,edit:true})
+            if(!this.state.success)
+            {
+                let {Fname,Lname,email} = this.props.user
+                this.setState({Fname,Lname,email,edit:true})
+            }
+            else
+            {
+                this.setState({edit:true})
+            }
         }
         else
         {
@@ -49,7 +67,7 @@ export default class DashBoard extends Component {
 
         axios.patch("https://kiraye-car.herokuapp.com/user/update",userData).then(res=>{
             console.log(res)
-            this.setState({load:false,edit:false,success:true,Fname:res.data.Fname,Lname:res.data.Lname,email:res.data.email})
+            this.setState({submitData:res.data,open:true,load:false,edit:false,success:true,Fname:res.data.Fname,Lname:res.data.Lname,email:res.data.email})
         }).catch(e=>{console.log(e)})
     }
 
@@ -57,19 +75,22 @@ export default class DashBoard extends Component {
 
         console.log(this.state)
 
-        let {Fname,Lname,email} = this.props.user
-        let newUser={}
-        if(this.state.Fname)
+        let data
+
+        if(this.state.success)
         {
-            const {Fname,Lname,email} = this.state
-            newUser.Fname=Fname
-            newUser.Lname=Lname
-            newUser.email=email
+            data = this.state.submitData
         }
+        else
+        {
+            data = this.props.user
+        }
+
+        const {Fname,Lname,email} = data
         
         return (
             <div>
-                <Navbar value={1} changeAuth={this.props.changeAuth} auth={this.props.auth} user={this.state.success?newUser:this.props.user} />
+                <Navbar value={1} changeAuth={this.props.changeAuth} auth={this.props.auth} user={this.state.success?this.state.submitData:this.props.user} />
                 
                 <div style={{marginTop:"60px"}}>
                     <div style={{display:"flex",margin:"20px",justifyContent:"space-between"}}>
@@ -97,7 +118,7 @@ export default class DashBoard extends Component {
                                         label="First-Name"
                                         type="text"
                                         id="Fname"
-                                        value={this.state.Fname?newUser.Fname:Fname}
+                                        value={this.state.edit?this.state.Fname:Fname}
                                         onChange={this.handleChange}
                                         disabled={!this.state.edit}
                                     />
@@ -113,7 +134,7 @@ export default class DashBoard extends Component {
                                         label="Last-Name"
                                         type="text"
                                         id="Lname"
-                                        value={this.state.Lname?newUser.Lname:Lname}
+                                        value={this.state.edit?this.state.Lname:Lname}
                                         onChange={this.handleChange}
                                         disabled={!this.state.edit}
                                     />
@@ -130,7 +151,7 @@ export default class DashBoard extends Component {
                                         label="email"
                                         type="email"
                                         id="email"
-                                        value={this.state.email?newUser.email:email}
+                                        value={this.state.edit?this.state.email:email}
                                         onChange={this.handleChange}
                                         disabled={!this.state.edit}
                                     />
@@ -158,6 +179,13 @@ export default class DashBoard extends Component {
                        
                     </div>
                 </div>
+                <AuthFeedBack 
+                    txt="Profile Updated"
+                    open={this.state.open} 
+                    autoHideDuration={3000}
+                    onClose={this.handleClose}
+                    severity="success" 
+                />
                 <Loader open={this.state.load} />
             </div>
         )

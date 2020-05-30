@@ -72,11 +72,14 @@ router.get('/user/me',auth,async (req,res)=>{
 })
 router.patch('/user/update',auth,async(req,res)=>{
     const allowedUpdates=['Fname','Lname','email','password'];
-    const match=await bcrypt.compare(req.body.password0,req.user.password);
-    delete req.body.password0
-    if(!match)
+    if(req.body.password)
     {
-        res.status(201).send({Error:"Incorrect Previous Password"})
+        const match=await bcrypt.compare(req.body.password0,req.user.password);
+        delete req.body.password0
+        if(!match)
+        {
+            res.status(201).send({Error:"Incorrect Previous Password"})
+        }
     }
     const updates=Object.keys(req.body);
     const valid=updates.every((update)=>allowedUpdates.includes(update))
