@@ -11,6 +11,7 @@ import CarType from './components/CarType'
 import ShowCar from './components/ShowCar'
 import Cookie from "js-cookie"
 import Loader1 from './components/Loader1'
+import DashBoard from './components/DashBoard'
 
 export default class App extends React.Component{
 
@@ -65,6 +66,9 @@ export default class App extends React.Component{
             } />
             <Route exact path = "/cartype" render = { () =>
               <CarType auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
+            } />
+            <Route exact path = "/dashboard" render = { () =>
+              <DashBoard auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
             } />
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
