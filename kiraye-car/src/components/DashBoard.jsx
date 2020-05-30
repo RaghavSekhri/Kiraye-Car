@@ -43,12 +43,13 @@ export default class DashBoard extends Component {
             }
             else
             {
-                this.setState({edit:true})
+                let {Fname,Lname,email} = this.state.submitData
+                this.setState({edit:true,Fname,Lname,email})
             }
         }
         else
         {
-            this.setState({edit:false})
+            this.setState({edit:false,Fname:"",Lname:"",email:""})
         }
     }
 
