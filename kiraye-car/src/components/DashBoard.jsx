@@ -136,7 +136,7 @@ export default class DashBoard extends Component {
                                     />
                                 </div>
                                 <div style={{marginTop:"30px"}}>
-                                    <Link to="/" style={{color:"inherit"}}>
+                                    <Link to="/changepassword" style={{color:"inherit"}}>
                                         <Button disabled={!this.state.edit} variant="contained" color="primary">
                                             Change Password
                                         </Button>
