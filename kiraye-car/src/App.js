@@ -5,6 +5,7 @@ import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
 import FAQ from './components/FAQ';
+import BookCar from './components/BookCar';
 import axios from 'axios';
 import Support from './components/Support'
 import CarType from './components/CarType'
@@ -19,7 +20,7 @@ export default class App extends React.Component{
   state={
     auth:false,
     load:false,
-    user:{}
+    user:{},
   }
 
   componentDidMount()
@@ -74,6 +75,7 @@ export default class App extends React.Component{
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
              <Route exact path = "/showcar/" component = {ShowCar} />
+             <Route exact path = "/bookcar" component = {BookCar} />
              <Route exact path = "/changepassword/" component = {ChangePassword} />
           </Switch>
         </Router>
