@@ -4,6 +4,7 @@ const auth=require('../middleware/auth');
 const validator=require('validator')
 const { sendWelcomeEmail }=require('../emails/account.js')
 const validate = require('../validation/validd');
+const bcrypt=require('bcryptjs');
 
 const router=new express.Router();
 
@@ -71,6 +72,15 @@ router.get('/user/me',auth,async (req,res)=>{
 })
 router.patch('/user/update',auth,async(req,res)=>{
     const allowedUpdates=['Fname','Lname','email','password'];
+    if(req.body.password)
+    {
+        const match=await bcrypt.compare(req.body.password0,req.user.password);
+        delete req.body.password0
+        if(!match)
+        {
+            res.status(201).send({Error:"Incorrect Previous Password"})
+        }
+    }
     const updates=Object.keys(req.body);
     const valid=updates.every((update)=>allowedUpdates.includes(update))
     if(!valid)
