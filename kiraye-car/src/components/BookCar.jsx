@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import MaterialUIPickers from '../components/Calender.jsx'
+import MaterialUIPickers from '../components/Calender.jsx'
 
 export default class BookCar extends Component{
 
@@ -43,7 +43,7 @@ export default class BookCar extends Component{
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
                     </select>
-                    {/* <MaterialUIPickers /> */}
+                    <MaterialUIPickers />
             </form>
             </div>
         )
