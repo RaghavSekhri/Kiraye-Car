@@ -1,0 +1,74 @@
+.bg{
+background-image: url(../../images/bookcarbg.jpg);
+display:flex;
+background-repeat: no-repeat;
+/* width: 100vw; */
+background-size: cover;
+}
+
+.frm{
+    background-color: #e6ffe6;
+    padding-left: 15px;
+    padding-top: 25px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    height: 620px;
+    font-family: 'Vollkorn', serif;
+    border-style: double;
+    border-color: black;
+    color: #e60000;
+}
+
+.pickup{
+    height:70px;
+    width: 380px;
+    margin-left: 30px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.city{
+    height:35px;
+    width:150px;
+    margin-left: 10px;
+    margin-right: 60px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.state{
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.form-control{
+    /* height:30px; */
+    margin-left: 10px;
+    width:165px;
+}
+
+.dlid{
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 50px;
+    width:250px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.submit{
+    margin-left: 100px;
+}
+
+.detailss{
+    margin-top: 40px;
+    margin-left: 50px;
+    color:white;
+}
+
+.jst{
+    font-size: 50px;
+    font-family: 'Mogra', cursive;
+}
+
+.fill{
+    font-size: 35px;
+    font-family: 'Shojumaru', cursive;
+}

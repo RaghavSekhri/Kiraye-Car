@@ -1,16 +1,21 @@
 import React, {Component} from 'react'
 import MaterialUIPickers from '../components/Calender.jsx'
+import './styles/BookCar.css'
+import Button from '@material-ui/core/Button';
+import SimpleTabs from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default class BookCar extends Component{
 
     render() {
 
         return (
-            <div style={{width:'100%'}}>
-            <form>
-                Pick up location<br></br><input type="text"></input><br></br><br></br>
-                City<input type="text" style={{width:'100px'}}></input>  
-                State <select name="state" id="state" class="form-control" style={{width:'50px'}}>
+            <div>
+                <SimpleTabs /><b><div className="bg">
+            <form className="frm" style={{width:'40%',display:'flex',flexWrap:'wrap'}}>
+               <br></br> PICK UP<br></br> LOCATION<br></br><input type="text" className="pickup"></input>
+                CITY<input type="text" className ="city"></input>  
+                STATE <select className="state form-control" id="state">
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                     <option value="Assam">Assam</option>
@@ -43,8 +48,19 @@ export default class BookCar extends Component{
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
                     </select>
-                    <MaterialUIPickers />
+                    PICKUP   DATE & TIME<MaterialUIPickers />
+                    RETURN   DATE & TIME
+                    <MaterialUIPickers /><br></br>
+                    DRIVING LICENSE ID<input type="text" className="dlid"></input>
+                    <div style={{marginLeft:'180px'}}>
+                    <Button variant="contained" color="secondary">Confirm Booking</Button>
+                    </div>
             </form>
+                <div className="detailss"><i><p className="jst">JUST A STEP AWAY NOW!!!!</p></i>
+                   <p className="fill"> FILL IN THE DETAILS  </p>      
+                </div>
+            </div></b>
+            <Footer />
             </div>
         )
     }
