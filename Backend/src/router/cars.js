@@ -1,6 +1,6 @@
 const express=require('express');
 const Car=require('../models/cars');
-
+const auth=require('../middleware/auth');
 const router=new express.Router();
 
 
@@ -12,6 +12,39 @@ router.get('/cars',(req,res)=>{
         console.log(e)
     })
     
+})
+
+router.get('/mycars',auth,async (req,res)=>{
+    
+    let carids = req.user.bookedCars
+    let i
+
+    let cars=[]
+
+    for(i=0;i<carids.length;i++)
+    {
+        let carr = await Car.findById(carids[i])
+        cars.push(carr)
+    }
+
+    res.status(201).json(cars)
+})
+
+router.post('/bookcar',auth,async (req,res)=>{
+    
+    let car = await Car.findById(req.body.carId)
+
+    if(car.booked)
+    {
+        return res.status(201).json({"Error":"Car Already Booked. Please Select Another Car"});
+    }
+
+    req.user.bookedCars.push(req.body.carId)
+    await req.user.save();
+    car.booked=true;
+    await car.save();
+
+    res.send()
 })
 
 router.get('/cartype',(req,res)=>{
