@@ -78,6 +78,7 @@ export default class App extends React.Component{
             } />
             <Route exact path = "/bookcar/:carid" render = { () =>
               <BookCar auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
+            } />
             <Route exact path = "/recentbookedcars" render = { () =>
               <RecentBookedCars auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
             } />
