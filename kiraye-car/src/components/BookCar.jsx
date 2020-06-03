@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import MaterialUIPickers from '../components/Calender.jsx'
+import MaterialUIPickers from '../components/Calendar.jsx'
 import './styles/BookCar.css'
 import Button from '@material-ui/core/Button';
 import SimpleTabs from '../components/Navbar';
