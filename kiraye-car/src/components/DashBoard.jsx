@@ -96,8 +96,10 @@ export default class DashBoard extends Component {
                 <div style={{marginTop:"60px"}}>
                     <div style={{display:"flex",margin:"20px",justifyContent:"space-between"}}>
                         <h4>My Profile</h4>
-                        <Button variant="contained" color="primary">
-                            Show My Recently Booked Cars
+                        <Button variant="contained" color="primary" >
+                            <Link to='/recentbookedcars' style={{color: 'white', textDecoration: 'none'}}>
+                                Show My Recently Booked Cars
+                            </Link>
                         </Button>
                     </div>
                     <Divider variant="middle" />
