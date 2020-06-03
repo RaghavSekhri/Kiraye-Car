@@ -2,12 +2,12 @@
 background-image: url(../../images/bookcarbg.jpg);
 display:flex;
 background-repeat: no-repeat;
-/* width: 100vw; */
 background-size: cover;
 }
 
 .frm{
-    background-color: #e6ffe6;
+    background: #cac9c9;
+    opacity: 0.65;
     padding-left: 15px;
     padding-top: 25px;
     margin-left: 70px;
@@ -17,14 +17,14 @@ background-size: cover;
     font-family: 'Vollkorn', serif;
     border-style: double;
     border-color: black;
-    color: #e60000;
+    color: #f065a6; 
 }
 
 .pickup{
     height:70px;
     width: 380px;
     margin-left: 30px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px 4px wheat;
 }
 
 .city{
@@ -32,15 +32,14 @@ background-size: cover;
     width:150px;
     margin-left: 10px;
     margin-right: 60px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px 4px wheat;
 }
 
 .state{
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px 4px wheat;
 }
 
 .form-control{
-    /* height:30px; */
     margin-left: 10px;
     width:165px;
 }
@@ -50,7 +49,7 @@ background-size: cover;
     margin-left: 20px;
     height: 50px;
     width:250px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px 4px wheat;
 }
 
 .submit{
@@ -60,7 +59,7 @@ background-size: cover;
 .detailss{
     margin-top: 40px;
     margin-left: 50px;
-    color:white;
+    color:#ff751a;
 }
 
 .jst{
