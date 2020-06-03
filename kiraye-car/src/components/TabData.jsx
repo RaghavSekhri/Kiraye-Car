@@ -37,8 +37,8 @@ export default class TabData extends Component{
                                 return(
                                     <div key= {index}>
                                         <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                                            <Card style={{height: '700px', width: '100%', marginTop: '50px', backgroundColor: '#ecf0f1'}}>
-                                                <div style={{height: '300px'}}>
+                                            <Card style={{height: '700px', width: '100%', marginTop: '50px', backgroundColor: '#6D214F'}}>
+                                                <div style={{height: '335px'}}>
                                                     <Carousel>
                                                         <Carousel.Item>
                                                             <img
@@ -91,7 +91,7 @@ export default class TabData extends Component{
                                                         </Carousel.Item>
                                                     </Carousel>
                                                 </div>
-                                                <CardContent>
+                                                <CardContent style={{backgroundColor: '#6D214F'}}>
                                                 <Typography gutterBottom variant="h5" component="h2" style={{marginTop: '120px'}}>
                                                     {cars.heading}
                                                 </Typography>

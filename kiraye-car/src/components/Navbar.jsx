@@ -34,11 +34,6 @@ class SimpleTabs extends React.Component{
     const {value,auth,user} = this.props
     //console.log(auth)
     const theme = createMuiTheme({
-      palette: {
-        primary: {
-          main: '#000'
-        }
-      },
       overrides: {
         MuiTab: {
           root: {
@@ -69,7 +64,7 @@ class SimpleTabs extends React.Component{
     return (
       <div>
         <ThemeProvider theme={theme}>
-          <AppBar position="static" >
+          <AppBar position="static" style={{backgroundColor: 'black'}}>
             <Tabs value={value} aria-label="simple tabs example">
               <Tab wrapped icon={<img src={Logo} alt="" style={{width:"200px",height:"50px"}}></img>} component={Link} to="/" />
               {!auth && <Tab wrapped icon={<AccountCircle/>} style={{marginLeft:"70%"}} label="Login" component={Link} to="/login"  />}
