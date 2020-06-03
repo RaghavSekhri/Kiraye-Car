@@ -4,14 +4,40 @@ import './styles/BookCar.css'
 import Button from '@material-ui/core/Button';
 import SimpleTabs from '../components/Navbar';
 import Footer from '../components/Footer';
+import {Redirect} from 'react-router-dom'
+import axios from 'axios'
 
 export default class BookCar extends Component{
 
+    state={
+        carId:""
+    }
+
+    booking = () => {
+        axios
+          .post('https://kiraye-car.herokuapp.com/bookcar', this.state)
+          .then(res => {
+            console.log(res)
+        })
+    }
+
+    componentDidMount()
+    {
+        this.setState({carId:window.location.pathname.substring(9)})
+    }
+
     render() {
+        
+        console.log(this.state)
+
+        if(!this.props.auth)
+        {
+            return <Redirect to="/"/>
+        }
 
         return (
             <div>
-                <SimpleTabs /><b><div className="bg">
+                <SimpleTabs auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} /><b><div className="bg">
             <form className="frm" style={{width:'40%',display:'flex',flexWrap:'wrap'}}>
                <br></br> PICK UP<br></br> LOCATION<br></br><input type="text" className="pickup"></input>
                 CITY<input type="text" className ="city"></input>  
@@ -53,7 +79,7 @@ export default class BookCar extends Component{
                     <MaterialUIPickers /><br></br>
                     DRIVING LICENSE ID<input type="text" className="dlid"></input>
                     <div style={{marginLeft:'180px'}}>
-                    <Button variant="contained" color="secondary">Confirm Booking</Button>
+                    <Button onClick={this.booking} variant="contained" color="secondary">Confirm Booking</Button>
                     </div>
             </form>
                 <div className="detailss"><i><p className="jst">JUST A STEP AWAY NOW!!!!</p></i>

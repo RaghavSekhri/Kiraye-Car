@@ -1,0 +1,7 @@
+.back-img{
+    background-image: url('../../images/back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-position-y: -800px; */
+}

@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Carousel from 'react-bootstrap/Carousel'
 import Box from '@material-ui/core/Box';
+import {Link} from 'react-router-dom'
 
 class TabPanel extends Component{
     
@@ -37,8 +38,8 @@ export default class TabData extends Component{
                                 return(
                                     <div key= {index}>
                                         <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                                            <Card style={{height: '700px', width: '100%', marginTop: '50px', backgroundColor: '#ecf0f1'}}>
-                                                <div style={{height: '300px'}}>
+                                            <Card style={{height: '700px', width: '100%', marginTop: '50px', backgroundColor: '#6D214F'}}>
+                                                <div style={{height: '335px'}}>
                                                     <Carousel>
                                                         <Carousel.Item>
                                                             <img
@@ -91,7 +92,7 @@ export default class TabData extends Component{
                                                         </Carousel.Item>
                                                     </Carousel>
                                                 </div>
-                                                <CardContent>
+                                                <CardContent style={{backgroundColor: '#6D214F'}}>
                                                 <Typography gutterBottom variant="h5" component="h2" style={{marginTop: '120px'}}>
                                                     {cars.heading}
                                                 </Typography>
@@ -117,9 +118,16 @@ export default class TabData extends Component{
                                                             <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{cars.price}</span>
                                                     </Typography>
                                                 </div>
+                                                {this.props.auth?
+                                                <Link to={`bookcar/${cars._id}`}>
                                                 <Button variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
                                                     Book Your Car now
                                                 </Button>
+                                                </Link>:
+                                                <Button onClick={click=>alert("Please Login First!!")} variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
+                                                    Book Your Car now
+                                                </Button>
+                                                }
                                                 </CardContent>    
                                             </Card>
                                         </div>

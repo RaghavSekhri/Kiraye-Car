@@ -6,7 +6,9 @@ import AppBar from '@material-ui/core/AppBar';
 import TabData from './TabData'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
+import SimpleTabs from '../components/Navbar'
+import Footer from '../components/Footer'
+import './styles/showcar.css'
 
 export default class ShowCar extends Component {
     constructor(props) {
@@ -22,7 +24,7 @@ export default class ShowCar extends Component {
     }
     componentDidMount(){
         let query;
-        let obj = queryString.parse(this.props.location.search)
+        let obj = queryString.parse(window.location.search)
         if(obj.type)
         {
             query = obj.type
@@ -59,22 +61,28 @@ export default class ShowCar extends Component {
             return <Loader1 />
 
         return (
-            <div style={{display:"flex",justifyItems:"center",justifyContent:"center"}}>
-            <div style={{width:"35%",marginTop:"100px"}}>
-                <AppBar position="static">
-                    <Tabs
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    variant="fullWidth"
-                    aria-label="full width tabs example"
-                    >
-                    <Tab label="Available Cars"  />
-                    <Tab label="All Cars"  />
-                    </Tabs>
-                </AppBar>
-                <TabData value={this.state.value} index={0} carData={this.state.activeCars}/>
-                <TabData value={this.state.value} index={1} carData={this.state.car} />
-            </div>
+            <div>
+                <SimpleTabs />
+                <div className="back-img">
+                <div style={{display:"flex",justifyItems:"center",justifyContent:"center"}}>
+                <div style={{width:"35%",marginTop:"100px"}}>
+                    <AppBar position="static" style={{backgroundColor: 'black'}}>
+                        <Tabs
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                        variant="fullWidth"
+                        aria-label="full width tabs example"
+                        >
+                        <Tab label="Available Cars"  />
+                        <Tab label="All Cars"  />
+                        </Tabs>
+                    </AppBar>
+                    <TabData auth={this.props.auth} value={this.state.value} index={0} carData={this.state.activeCars}/>
+                    <TabData auth={this.props.auth} value={this.state.value} index={1} carData={this.state.car} />
+                </div>
+                </div>
+                </div>
+                <Footer />
             </div>
         )
     }

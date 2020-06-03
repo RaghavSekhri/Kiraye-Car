@@ -4,7 +4,7 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import image from '../images/profile.png'
 import TextField from '@material-ui/core/TextField';
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import Loader from './Loader'
 import AuthFeedBack from './AuthFeedBack'
 import axios from 'axios'
@@ -74,7 +74,12 @@ export default class DashBoard extends Component {
 
     render() {
 
-        console.log(this.state)
+        if(!this.props.auth)
+        {
+            return <Redirect to="/"/>
+        }
+
+        //console.log(this.state)
 
         let data
 
@@ -96,7 +101,7 @@ export default class DashBoard extends Component {
                 <div style={{marginTop:"60px"}}>
                     <div style={{display:"flex",margin:"20px",justifyContent:"space-between"}}>
                         <h4>My Profile</h4>
-                        <Button variant="contained" color="primary" >
+                        <Button variant="contained" color="primary">
                             <Link to='/recentbookedcars' style={{color: 'white', textDecoration: 'none'}}>
                                 Show My Recently Booked Cars
                             </Link>
