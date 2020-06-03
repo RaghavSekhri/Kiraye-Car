@@ -4,14 +4,31 @@ import './styles/BookCar.css'
 import Button from '@material-ui/core/Button';
 import SimpleTabs from '../components/Navbar';
 import Footer from '../components/Footer';
+import {Redirect} from 'react-router-dom'
 
 export default class BookCar extends Component{
 
+    state={
+        carId:""
+    }
+
+    componentDidMount()
+    {
+        this.setState({carId:window.location.pathname.substring(9)})
+    }
+
     render() {
+        
+        console.log(this.state)
+
+        if(!this.props.auth)
+        {
+            return <Redirect to="/"/>
+        }
 
         return (
             <div>
-                <SimpleTabs /><b><div className="bg">
+                <SimpleTabs auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} /><b><div className="bg">
             <form className="frm" style={{width:'40%',display:'flex',flexWrap:'wrap'}}>
                <br></br> PICK UP<br></br> LOCATION<br></br><input type="text" className="pickup"></input>
                 CITY<input type="text" className ="city"></input>  

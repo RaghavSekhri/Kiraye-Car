@@ -22,7 +22,7 @@ export default class ShowCar extends Component {
     }
     componentDidMount(){
         let query;
-        let obj = queryString.parse(this.props.location.search)
+        let obj = queryString.parse(window.location.search)
         if(obj.type)
         {
             query = obj.type
@@ -53,7 +53,7 @@ export default class ShowCar extends Component {
 
     render() {
 
-        console.log(this.state.car)
+        //console.log(this.props.auth)
 
         if(!this.state.load)
             return <Loader1 />
@@ -72,8 +72,8 @@ export default class ShowCar extends Component {
                     <Tab label="All Cars"  />
                     </Tabs>
                 </AppBar>
-                <TabData value={this.state.value} index={0} carData={this.state.activeCars}/>
-                <TabData value={this.state.value} index={1} carData={this.state.car} />
+                <TabData auth={this.props.auth} value={this.state.value} index={0} carData={this.state.activeCars}/>
+                <TabData auth={this.props.auth} value={this.state.value} index={1} carData={this.state.car} />
             </div>
             </div>
         )
