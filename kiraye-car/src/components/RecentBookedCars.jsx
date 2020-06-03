@@ -34,7 +34,7 @@ export default class RecentBookedCars extends Component {
         // console.log(this.props.user)
         return (
             <div className="backy-img"> 
-                <Navbar />
+                <Navbar auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} />
                 {this.state.car.map((Eachcar, index) => {
                     return(
                         <div key= {index}>
