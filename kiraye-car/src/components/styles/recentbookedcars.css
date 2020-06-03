@@ -1,0 +1,6 @@
+.backy-img{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/backy.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
