@@ -99,9 +99,18 @@ export default class BookCar extends Component{
     booking = (e) => {
 
         e.preventDefault()
-        
-        if(Object.keys(this.state.errors).length!==0)
+        let {errors} = this.state
+
+        if(!this.state.city)
+            errors.city="It should be atleast of 3 characters long"
+        if(!this.state.location)
+            errors.location="It should be atleast of 6 characters long"
+        if(!this.state.LicenseId)
+            errors.LicenseId="Invalid License ID"
+
+        if(Object.keys(errors).length!==0)
         {
+            this.setState({errors})
             return alert("Fill the details properly")
         }
 
