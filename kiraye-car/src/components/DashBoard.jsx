@@ -118,7 +118,7 @@ export default class DashBoard extends Component {
                                 <div style={{display:"flex"}}>
                                     <h5 style={{marginTop:"30px"}}>FirstName</h5>
                                     <TextField
-                                        style={{marginLeft:"20px",backgroundColor:"#90a4ae"}}
+                                        style={{marginLeft:"20px",backgroundColor:"#bbdefb"}}
                                         variant="outlined"
                                         margin="normal"
                                         required
@@ -134,7 +134,7 @@ export default class DashBoard extends Component {
                                 <div style={{display:"flex"}}>
                                     <h5 style={{marginTop:"30px"}}>LastName</h5>
                                     <TextField
-                                        style={{marginLeft:"20px",backgroundColor:"#90a4ae"}}
+                                        style={{marginLeft:"20px",backgroundColor:"#bbdefb"}}
                                         variant="outlined"
                                         margin="normal"
                                         required
@@ -150,7 +150,7 @@ export default class DashBoard extends Component {
                                 <div style={{display:"flex"}}>
                                     <h5 style={{marginTop:"30px"}}>email</h5>
                                     <TextField
-                                        style={{marginLeft:"20px",backgroundColor:"#90a4ae"}}
+                                        style={{marginLeft:"20px",backgroundColor:"#bbdefb"}}
                                         variant="outlined"
                                         margin="normal"
                                         fullWidth
