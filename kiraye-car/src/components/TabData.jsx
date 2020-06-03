@@ -118,15 +118,20 @@ export default class TabData extends Component{
                                                             <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{cars.price}</span>
                                                     </Typography>
                                                 </div>
-                                                {this.props.auth?
-                                                <Link to={`bookcar/${cars._id}`}>
-                                                <Button variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
-                                                    Book Your Car now
-                                                </Button>
-                                                </Link>:
-                                                <Button onClick={click=>alert("Please Login First!!")} variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
-                                                    Book Your Car now
-                                                </Button>
+                                                {this.props.status?
+                                                    this.props.auth?
+                                                    <Link to={`bookcar/${cars._id}`}>
+                                                    <Button variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
+                                                        Book Your Car now
+                                                    </Button>
+                                                    </Link>:
+                                                    <Button onClick={click=>alert("Please Login First!!")} variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
+                                                        Book Your Car now
+                                                    </Button>
+                                                    :
+                                                    <Button disabled variant="contained" style={{backgroundColor: 'orange', marginTop: '30px'}}>
+                                                        Already Booked
+                                                    </Button>
                                                 }
                                                 </CardContent>    
                                             </Card>

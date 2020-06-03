@@ -36,7 +36,7 @@ export default class ShowCar extends Component {
 
         Axios.get(`https://kiraye-car.herokuapp.com/cartype/?type=${query}`)
         .then(res=>{
-        // console.log(res.data)
+        console.log(res.data)
         this.setState({
             car: [...res.data.activeCars,...res.data.bookedCars],
             activeCars: res.data.activeCars,
@@ -55,7 +55,7 @@ export default class ShowCar extends Component {
 
     render() {
 
-        console.log(this.state.car)
+        console.log(this.state)
 
         if(!this.state.load)
             return <Loader1 />
@@ -74,11 +74,11 @@ export default class ShowCar extends Component {
                         aria-label="full width tabs example"
                         >
                         <Tab label="Available Cars"  />
-                        <Tab label="All Cars"  />
+                        <Tab label="Booked Cars"  />
                         </Tabs>
                     </AppBar>
-                    <TabData auth={this.props.auth} value={this.state.value} index={0} carData={this.state.activeCars}/>
-                    <TabData auth={this.props.auth} value={this.state.value} index={1} carData={this.state.car} />
+                    <TabData status={true} auth={this.props.auth} value={this.state.value} index={0} carData={this.state.activeCars}/>
+                    <TabData status={false} auth={this.props.auth} value={this.state.value} index={1} carData={this.state.bookedCars} />
                 </div>
                 </div>
                 </div>
