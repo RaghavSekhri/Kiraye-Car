@@ -6,9 +6,9 @@ import AppBar from '@material-ui/core/AppBar';
 import TabData from './TabData'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import SimpleTabs from '../components/Navbar'
-import Footer from '../components/Footer'
+import Footer from './Footer'
 import './styles/showcar.css'
+import Navbar from './Navbar'
 
 export default class ShowCar extends Component {
     constructor(props) {
@@ -62,7 +62,7 @@ export default class ShowCar extends Component {
 
         return (
             <div>
-                <SimpleTabs />
+                <Navbar auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} />
                 <div className="back-img">
                 <div style={{display:"flex",justifyItems:"center",justifyContent:"center"}}>
                 <div style={{width:"35%",marginTop:"100px"}}>
