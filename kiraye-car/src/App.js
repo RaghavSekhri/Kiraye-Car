@@ -14,6 +14,7 @@ import Cookie from "js-cookie"
 import Loader1 from './components/Loader1'
 import DashBoard from './components/DashBoard'
 import ChangePassword from './components/ChangePassword'
+import RecentBookedCars from './components/RecentBookedCars'
 
 export default class App extends React.Component{
 
@@ -77,6 +78,9 @@ export default class App extends React.Component{
             } />
             <Route exact path = "/bookcar/:carid" render = { () =>
               <BookCar auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
+            } />
+            <Route exact path = "/recentbookedcars" render = { () =>
+              <RecentBookedCars auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
             } />
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
