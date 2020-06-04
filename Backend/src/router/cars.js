@@ -24,7 +24,11 @@ router.get('/mycars',auth,async (req,res)=>{
     for(i=0;i<carids.length;i++)
     {
         let carr = await Car.findById(carids[i].carId)
-        cars.push(carr)
+        let obj={
+            "car":carr,
+            "bookData":carids[i]
+        }
+        cars.push(obj)
     }
 
     res.status(201).json(cars)
