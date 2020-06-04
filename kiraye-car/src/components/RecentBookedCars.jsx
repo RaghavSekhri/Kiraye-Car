@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Carousel from 'react-bootstrap/Carousel'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import CarCard from './CarCard'
 import './styles/recentbookedcars.css'
 
 export default class RecentBookedCars extends Component {
@@ -39,84 +36,7 @@ export default class RecentBookedCars extends Component {
                     return(
                         <div key= {index}>
                             <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                                <Card style={{height: '650px', width: '40%', marginTop: '50px', opacity: '0.8', backgroundColor: '#dfe4ea'}}>
-                                    <div style={{height: '335px'}}>
-                                        <Carousel>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src={Eachcar.car.media.images[0]}
-                                                    alt="First slide"
-                                                    height="400px"
-                                                    width="20px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src={Eachcar.car.media.images[1]}
-                                                    alt="Third slide"
-                                                    height="400px"
-                                                    width="20px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src={Eachcar.car.media.images[2]}
-                                                    alt="Third slide"
-                                                    height="400px"
-                                                    width="20px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src={Eachcar.car.media.images[3]}
-                                                    alt="First slide"
-                                                    height="400px"
-                                                    width="20px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src={Eachcar.car.media.images[4]}
-                                                    alt="First slide"
-                                                    height="400px"
-                                                    width="20px"
-                                                />
-                                            </Carousel.Item>
-                                        </Carousel>
-                                    </div>
-                                        <CardContent style={{opacity: '0.8'}}>
-                                            <Typography gutterBottom variant="h5" component="h2" style={{marginTop: '95px'}}>
-                                                    {Eachcar.car.heading}
-                                            </Typography>
-                                            <div style={{marginTop: '30px'}}>
-                                                <Typography variant="body2" color="textSecondary" style={{float: 'left', display: 'inline'}}>
-                                                        <span>Fuel Type:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.fuel_type}</span>
-                                                </Typography>
-                                                <Typography variant="body2" color="textSecondary" style={{display: 'inline'}}>
-                                                        <span>Make:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.make}</span>
-                                                </Typography>
-                                                <Typography variant="body2" color="textSecondary" style={{float: 'right', display: 'inline'}}>
-                                                        <span>Model:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.model}</span>
-                                                </Typography>
-                                            </div>
-                                            <div style={{marginTop: '30px'}}>
-                                                <Typography variant="body2" color="textSecondary" style={{float: 'left', display: 'inline'}}>
-                                                        <span>Year:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.year}</span>
-                                                </Typography>
-                                                <Typography variant="body2" color="textSecondary" style={{display: 'inline'}}>
-                                                        <span>Miles:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.miles}</span>
-                                                </Typography>
-                                                <Typography variant="body2" color="textSecondary" style={{float: 'right', display: 'inline'}}>
-                                                        <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.price}</span>
-                                                </Typography>
-                                            </div>
-                                        </CardContent>    
-                                </Card>
+                                <CarCard car={Eachcar.car} />
                             </div>
                         </div>
                     )
