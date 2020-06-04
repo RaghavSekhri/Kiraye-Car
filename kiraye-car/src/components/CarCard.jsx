@@ -125,7 +125,8 @@ export default class CarCard extends Component {
                             </Typography>
                         </div>
                         <div style={{marginTop:"20px"}}>
-                            <h4 style={{color:color}}>{color==="black"?"Time Left To Return : ":"Booking Period Expired : "} {day?day+"Days":null} {hrs?hrs+"Hours":null} {min?min+"Min":null} {sec<10?"0"+sec:sec}Sec</h4>
+                            {color==="red"?<h4 style={{color:"red"}}>Booking Period Expired</h4>:null}
+                            <h4 style={{color:color}}>{color==="black"?"Time Left To Return : ":"Time Delayed : "} {day?day+"Days":null} {hrs?hrs+"Hours":null} {min?min+"Min":null} {sec<10?"0"+sec:sec}Sec</h4>
                         </div>
                     </CardContent>    
             </Card>
