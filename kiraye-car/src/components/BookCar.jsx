@@ -117,13 +117,19 @@ export default class BookCar extends Component{
         this.setState({load:true})
 
         let obj={
-            carId:this.state.carId
+            carId:this.state.carId,
+            bookedTime:this.state.pickupDate,
+            returnTime:this.state.returnDate,
+            location:this.state.location,
+            city:this.state.city,
+            state:this.state.state,
+            LicenseId:this.state.LicenseId
         }
 
         axios
           .post('https://kiraye-car.herokuapp.com/bookcar', obj)
           .then(res => {
-            console.log(res)
+            //console.log(res)
             if(res.data.Error)
             {
                 this.setState({load:false,open1:true})
@@ -145,7 +151,7 @@ export default class BookCar extends Component{
 
     render() {
         
-        console.log(this.state)
+        //console.log(this.state)
 
         if(!this.props.auth||this.state.redirect)
         {

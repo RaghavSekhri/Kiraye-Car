@@ -23,7 +23,7 @@ router.get('/mycars',auth,async (req,res)=>{
 
     for(i=0;i<carids.length;i++)
     {
-        let carr = await Car.findById(carids[i])
+        let carr = await Car.findById(carids[i].carId)
         cars.push(carr)
     }
 
@@ -39,9 +39,11 @@ router.post('/bookcar',auth,async (req,res)=>{
         return res.status(201).json({"Error":"Car Already Booked. Please Select Another Car"});
     }
 
-    req.user.bookedCars.push(req.body.carId)
+    req.user.bookedCars.push(req.body)
     await req.user.save();
     car.booked=true;
+    car.bookedTime=req.body.bookedTime
+    car.returnTime=req.body.returnTime
     await car.save();
 
     res.send()
