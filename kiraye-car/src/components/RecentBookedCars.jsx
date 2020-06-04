@@ -45,7 +45,7 @@ export default class RecentBookedCars extends Component {
                                             <Carousel.Item>
                                                 <img
                                                     className="d-block w-100"
-                                                    src={Eachcar.media.images[0]}
+                                                    src={Eachcar.car.media.images[0]}
                                                     alt="First slide"
                                                     height="400px"
                                                     width="20px"
@@ -54,7 +54,7 @@ export default class RecentBookedCars extends Component {
                                             <Carousel.Item>
                                                 <img
                                                     className="d-block w-100"
-                                                    src={Eachcar.media.images[1]}
+                                                    src={Eachcar.car.media.images[1]}
                                                     alt="Third slide"
                                                     height="400px"
                                                     width="20px"
@@ -63,7 +63,7 @@ export default class RecentBookedCars extends Component {
                                             <Carousel.Item>
                                                 <img
                                                     className="d-block w-100"
-                                                    src={Eachcar.media.images[2]}
+                                                    src={Eachcar.car.media.images[2]}
                                                     alt="Third slide"
                                                     height="400px"
                                                     width="20px"
@@ -72,7 +72,7 @@ export default class RecentBookedCars extends Component {
                                             <Carousel.Item>
                                                 <img
                                                     className="d-block w-100"
-                                                    src={Eachcar.media.images[3]}
+                                                    src={Eachcar.car.media.images[3]}
                                                     alt="First slide"
                                                     height="400px"
                                                     width="20px"
@@ -81,7 +81,7 @@ export default class RecentBookedCars extends Component {
                                             <Carousel.Item>
                                                 <img
                                                     className="d-block w-100"
-                                                    src={Eachcar.media.images[4]}
+                                                    src={Eachcar.car.media.images[4]}
                                                     alt="First slide"
                                                     height="400px"
                                                     width="20px"
@@ -91,28 +91,28 @@ export default class RecentBookedCars extends Component {
                                     </div>
                                         <CardContent style={{opacity: '0.8'}}>
                                             <Typography gutterBottom variant="h5" component="h2" style={{marginTop: '95px'}}>
-                                                    {Eachcar.heading}
+                                                    {Eachcar.car.heading}
                                             </Typography>
                                             <div style={{marginTop: '30px'}}>
                                                 <Typography variant="body2" color="textSecondary" style={{float: 'left', display: 'inline'}}>
-                                                        <span>Fuel Type:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.build.fuel_type}</span>
+                                                        <span>Fuel Type:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.fuel_type}</span>
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" style={{display: 'inline'}}>
-                                                        <span>Make:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.build.make}</span>
+                                                        <span>Make:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.make}</span>
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" style={{float: 'right', display: 'inline'}}>
-                                                        <span>Model:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.build.model}</span>
+                                                        <span>Model:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.model}</span>
                                                 </Typography>
                                             </div>
                                             <div style={{marginTop: '30px'}}>
                                                 <Typography variant="body2" color="textSecondary" style={{float: 'left', display: 'inline'}}>
-                                                        <span>Year:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.build.year}</span>
+                                                        <span>Year:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.build.year}</span>
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" style={{display: 'inline'}}>
-                                                        <span>Miles:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.miles}</span>
+                                                        <span>Miles:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.miles}</span>
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" style={{float: 'right', display: 'inline'}}>
-                                                        <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.price}</span>
+                                                        <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{Eachcar.car.price}</span>
                                                 </Typography>
                                             </div>
                                         </CardContent>    

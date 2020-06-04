@@ -129,7 +129,7 @@ export default class BookCar extends Component{
         axios
           .post('https://kiraye-car.herokuapp.com/bookcar', obj)
           .then(res => {
-            //console.log(res)
+            console.log(res)
             if(res.data.Error)
             {
                 this.setState({load:false,open1:true})
