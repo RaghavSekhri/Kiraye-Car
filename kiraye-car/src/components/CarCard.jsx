@@ -8,14 +8,47 @@ import './styles/recentbookedcars.css'
 
 export default class CarCard extends Component {
 
+    state={
+        returnDate: new Date(this.props.bookData.returnTime),
+        sec: 0,
+        min: 0,
+        hrs: 0,
+        day: 0,
+        color:"black"
+    }
+
+    tick = ()=>{
+
+        let {sec,min,hrs,day,returnDate,color} = this.state
+
+        sec = parseInt((returnDate.getTime()-Date.now())/1000)
+
+        if(sec<0)
+            color="red"
+        
+        sec = Math.abs(sec)
+        
+        day = parseInt(sec/86400)
+        sec = sec%86400
+        hrs = parseInt(sec/3600)
+        sec = sec%3600
+        min = parseInt(sec/60)
+        sec = sec%60
+
+        this.setState({sec,min,hrs,day,color})
+    }
 
     render() {
-        // console.log(this.props.user)
+        
+        setInterval(this.tick,1000)
 
         const {car} = this.props
 
+        let {sec,min,hrs,day,color} = this.state
+
+
         return (
-            <Card style={{height: '650px', width: '40%', marginTop: '50px', opacity: '0.8', backgroundColor: '#dfe4ea'}}>
+            <Card style={{ width: '40%', marginTop: '50px', opacity: '0.8', backgroundColor: '#dfe4ea'}}>
                 <div style={{height: '335px'}}>
                     <Carousel>
                         <Carousel.Item>
@@ -90,6 +123,9 @@ export default class CarCard extends Component {
                             <Typography variant="body2" color="textSecondary" style={{float: 'right', display: 'inline'}}>
                                     <span>Price:</span><span style={{color: 'black'}}>&nbsp;&nbsp;{car.price}</span>
                             </Typography>
+                        </div>
+                        <div style={{marginTop:"20px"}}>
+                            <h4 style={{color:color}}>{color==="black"?"Time Left To Return : ":"Booking Period Expired : "} {day?day+"Days":null} {hrs?hrs+"Hours":null} {min?min+"Min":null} {sec<10?"0"+sec:sec}Sec</h4>
                         </div>
                     </CardContent>    
             </Card>

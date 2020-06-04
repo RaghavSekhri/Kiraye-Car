@@ -36,7 +36,7 @@ export default class RecentBookedCars extends Component {
                     return(
                         <div key= {index}>
                             <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                                <CarCard car={Eachcar.car} />
+                                <CarCard car={Eachcar.car} bookData={Eachcar.bookData} />
                             </div>
                         </div>
                     )
