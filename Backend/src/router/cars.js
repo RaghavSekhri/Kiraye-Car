@@ -23,7 +23,7 @@ router.get('/mycars',auth,async (req,res)=>{
 
     for(i=0;i<carids.length;i++)
     {
-        let carr = await Car.findById(carids[i])
+        let carr = await Car.findById(carids[i].carId)
         cars.push(carr)
     }
 
