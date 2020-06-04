@@ -30,6 +30,14 @@ const carSchema=new mongoose.Schema({
         type:Boolean,
         default: false
     },
+    bookedTime:{
+        type:String,
+        default: ""
+    },
+    returnTime:{
+        type:String,
+        default: ""
+    },
     scraped_at:{
         type:Number,
         required:true,
