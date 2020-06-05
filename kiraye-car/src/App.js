@@ -15,6 +15,7 @@ import Loader1 from './components/Loader1'
 import DashBoard from './components/DashBoard'
 import ChangePassword from './components/ChangePassword'
 import RecentBookedCars from './components/RecentBookedCars'
+import ReturnCar from './components/ReturnCar'
 
 export default class App extends React.Component{
 
@@ -81,6 +82,9 @@ export default class App extends React.Component{
             } />
             <Route exact path = "/recentbookedcars" render = { () =>
               <RecentBookedCars auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
+            } />
+            <Route exact path = "/returncar" render = { () =>
+              <ReturnCar auth = {auth} changeAuth = {this.handleAuthChange} user={this.state.user} />
             } />
              <Route exact path = "/support" component = {Support} />
              <Route exact path = "/faq" component = {FAQ}/>
