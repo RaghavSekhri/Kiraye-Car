@@ -38,6 +38,10 @@ const carSchema=new mongoose.Schema({
         type:String,
         default: ""
     },
+    UserId:{
+        type:String,
+        default: ""
+    },
     scraped_at:{
         type:Number,
         required:true,

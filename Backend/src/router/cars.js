@@ -48,6 +48,7 @@ router.post('/bookcar',auth,async (req,res)=>{
     car.booked=true;
     car.bookedTime=req.body.bookedTime
     car.returnTime=req.body.returnTime
+    car.UserId=req.user._id
     await car.save();
 
     res.send()
