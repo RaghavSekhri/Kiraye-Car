@@ -1,5 +1,6 @@
 const express=require('express');
 const Car=require('../models/cars');
+const User=require('../models/user');
 const auth=require('../middleware/auth');
 const router=new express.Router();
 
@@ -8,6 +9,38 @@ router.get('/cars',(req,res)=>{
     
     Car.find({}).then(result=>{
         return res.status(201).json(result);
+    }).catch(e=>{
+        console.log(e)
+    })
+    
+})
+
+router.patch('/returncar',auth,async(req,res)=>{
+    
+    Car.findById(req.body.carId).then(async car=>{
+        car.booked=false
+        car.bookedTime=""
+        car.returnTime=""
+        
+        let user = await User.findById(car.UserId)
+
+        car.UserId=""
+        await car.save()
+        
+        let i;
+        for(i=0;i<user.bookedCars.length;i++)
+        {
+            if(user.bookedCars[i].carId===req.body.carId&&user.bookedCars[i].returned===false)
+                break;
+        }
+
+        let obj = user.bookedCars[i]
+        obj.returned=true
+
+        user.bookedCars.set(i,obj)
+        await user.save()
+
+        return res.status(201).json({"Success":true});
     }).catch(e=>{
         console.log(e)
     })
