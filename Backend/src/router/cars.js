@@ -14,6 +14,26 @@ router.get('/cars',(req,res)=>{
     
 })
 
+router.get('/allbookedcars',(req,res)=>{
+    
+    Car.find({}).then(result=>{
+        let suv = result.filter(car=>car.build.body_type==="SUV"&&car.booked===true)
+        let sedan = result.filter(car=>car.build.body_type==="Sedan"&&car.booked===true)
+        let coupe = result.filter(car=>car.build.body_type==="Coupe"&&car.booked===true)
+        let wagon = result.filter(car=>car.build.body_type==="Wagon"&&car.booked===true)
+        let hatchback = result.filter(car=>car.build.body_type==="Hatchback"&&car.booked===true)
+        let pickup = result.filter(car=>car.build.body_type==="Pickup"&&car.booked===true)
+
+        let obj = {suv,sedan,coupe,wagon,hatchback,pickup}
+
+        return res.status(201).json(obj);
+
+    }).catch(e=>{
+        console.log(e)
+    })
+    
+})
+
 router.get('/mycars',auth,async (req,res)=>{
     
     let carids = req.user.bookedCars
