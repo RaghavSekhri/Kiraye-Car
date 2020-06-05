@@ -42,12 +42,13 @@ router.post('/bookcar',auth,async (req,res)=>{
     {
         return res.status(201).json({"Error":"Car Already Booked. Please Select Another Car"});
     }
-
+    req.body.returned=false
     req.user.bookedCars.push(req.body)
     await req.user.save();
     car.booked=true;
     car.bookedTime=req.body.bookedTime
     car.returnTime=req.body.returnTime
+    car.UserId=req.user._id
     await car.save();
 
     res.send()
