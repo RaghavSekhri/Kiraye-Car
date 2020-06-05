@@ -26,7 +26,7 @@ export default class ReturnCar extends Component{
     {
         console.log(this.state)
 
-        if(!this.props.auth)
+        if(!this.props.auth||this.state.cars.Error)
         {
             return(
                 <h1>You Are Not Authorized To Visit this Page.</h1>
