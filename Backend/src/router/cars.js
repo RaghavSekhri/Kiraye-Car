@@ -16,6 +16,11 @@ router.get('/cars',(req,res)=>{
 })
 
 router.patch('/returncar',auth,async(req,res)=>{
+
+    if(req.user.role==="client")
+    {
+        return res.status(201).json({"Error":"You Are Not Authorized To Do That!"});
+    }
     
     Car.findById(req.body.carId).then(async car=>{
         car.booked=false
@@ -47,8 +52,13 @@ router.patch('/returncar',auth,async(req,res)=>{
     
 })
 
-router.get('/allbookedcars',(req,res)=>{
+router.get('/allbookedcars',auth,(req,res)=>{
     
+    if(req.user.role==="client")
+    {
+        return res.status(201).json({"Error":"You Are Not Authorized To Visit this Page."});
+    }
+
     Car.find({}).then(result=>{
         let suv = result.filter(car=>car.build.body_type==="SUV"&&car.booked===true)
         let sedan = result.filter(car=>car.build.body_type==="Sedan"&&car.booked===true)
