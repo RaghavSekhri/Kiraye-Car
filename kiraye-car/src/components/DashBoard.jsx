@@ -69,6 +69,7 @@ export default class DashBoard extends Component {
         axios.patch("https://kiraye-car.herokuapp.com/user/update",userData).then(res=>{
             console.log(res)
             this.setState({submitData:res.data,open:true,load:false,edit:false,success:true,Fname:res.data.Fname,Lname:res.data.Lname,email:res.data.email})
+            this.props.changeAuth(true,res.data)
         }).catch(e=>{console.log(e)})
     }
 
