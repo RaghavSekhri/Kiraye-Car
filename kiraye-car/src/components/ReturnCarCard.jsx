@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import AuthFeedBack from './AuthFeedBack'
 import Loader from './Loader'
@@ -40,18 +39,22 @@ export default class ReturnCarCard extends Component{
 
         return (
             <div>
-                <h1>{this.props.type} Cars</h1>
-                <div style={{display:"flex",flexWrap:"wrap"}}>
-                    {this.state.cars.map(car=>{
-                        return(
-                            <Card style={{margin:"30px"}}>
-                                <img style={{width:"300px",height:"300px"}} src={car.media.images[0]} alt="error"/>
-                                <h5>{car.heading}</h5>
-                                <Button onClick={()=>{this.handleReturn(car._id)}} variant="contained" color="primary">Return This Car</Button>
-                            </Card>
-                        )
-                    })}
-                </div>
+                <table style={{marginTop: '100px', marginLeft: '100px'}}>
+                    <tr>
+                        <td><h1 style={{color: '#ffa502', fontFamily: 'Metal Mania, cursive'}}>{this.props.type} Cars&nbsp;&nbsp;<i class="fas fa-arrow-circle-down"></i></h1></td>
+                    </tr>
+                </table>
+                            {this.state.cars.map(car=>{
+                                return(
+                                    <table style={{marginTop: '50px', width: '100%'}} >
+                                    <tr>
+                                        <td style={{width: '38%'}}><img style={{width:"300px",height:"300px", borderRadius: '10%'}} src={car.media.images[0]} alt="error"/></td>
+                                        <td style={{width: '30%'}}><h5 style={{float: 'left', marginLeft:'150px', fontFamily: 'Acme', fontSize:'30px', color: '#F97F51', fontWeight: 'bold'}}>{car.heading}</h5></td>
+                                        <td><Button onClick={()=>{this.handleReturn(car._id)}} style={{fontFamily: 'Luckiest Guy cursive',fontWeight: 'bold', float: 'left', marginLeft:'150px', backgroundColor: '#218c74'}} variant="contained" color="primary">Return This Car</Button></td>
+                                    </tr>
+                                    </table>
+                                )
+                            })}
                 <AuthFeedBack 
                     txt="Returned Car!!"
                     open={this.state.open} 

@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import ReturnCarCard from './ReturnCarCard'
 import Loader1 from './Loader1'
+import './styles/returncar.css'
 
 export default class ReturnCar extends Component{
 
@@ -39,7 +40,7 @@ export default class ReturnCar extends Component{
         }
 
         return (
-            <div>
+            <div className="backy-img">
                 <Navbar auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} />
                 {this.state.cars.suv.length?
                     <ReturnCarCard cars={this.state.cars.suv} type="Suv" />:null
@@ -59,6 +60,7 @@ export default class ReturnCar extends Component{
                 {this.state.cars.wagon.length?
                     <ReturnCarCard cars={this.state.cars.wagon} type="Wagon" />:null
                 }
+                <div style={{height: '10vh'}}></div>
             </div>
         );
     }

@@ -33,7 +33,7 @@ export default class TabData extends Component{
     render()
     {
         return(
-            <TabPanel value={this.props.value} index={this.props.index}>
+            <TabPanel value={this.props.value} index={this.props.index} >
                     {this.props.carData.map((cars,index)=>{
                                 return(
                                     <div key= {index}>
