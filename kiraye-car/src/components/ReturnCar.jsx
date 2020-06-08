@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import ReturnCarCard from './ReturnCarCard'
 import Loader1 from './Loader1'
+import Footer from './Footer'
 import './styles/returncar.css'
 
 export default class ReturnCar extends Component{
@@ -61,6 +62,7 @@ export default class ReturnCar extends Component{
                     <ReturnCarCard cars={this.state.cars.wagon} type="Wagon" />:null
                 }
                 <div style={{height: '10vh'}}></div>
+                <Footer />
             </div>
         );
     }
