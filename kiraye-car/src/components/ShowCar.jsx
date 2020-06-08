@@ -64,7 +64,7 @@ export default class ShowCar extends Component {
             <div>
                 <Navbar auth={this.props.auth} changeAuth={this.props.changeAuth} user={this.props.user} />
                 <div className="back-img">
-                <div style={{display:"flex",justifyItems:"center",justifyContent:"center"}}>
+                <div style={{display:"flex",justifyItems:"center",justifyContent:"center",minHeight:"100vh"}}>
                 <div style={{width:"35%",marginTop:"100px"}}>
                     <AppBar position="static" style={{backgroundColor: 'black'}}>
                         <Tabs
